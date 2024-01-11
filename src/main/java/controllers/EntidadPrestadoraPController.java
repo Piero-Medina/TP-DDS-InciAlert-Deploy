@@ -31,7 +31,7 @@ public class EntidadPrestadoraPController extends Controller implements ICrudVie
     public void indexTest(Context context) {
         Map<String,Object> model = new HashMap<>();
         model.put("propietario", "true");
-        context.render("/entidadPrestadora/edit-entidadPrestadora.hbs",model);
+        context.render("entidadPrestadora/edit-entidadPrestadora.hbs",model);
     }
 
     @Override
@@ -48,17 +48,17 @@ public class EntidadPrestadoraPController extends Controller implements ICrudVie
             OrganismoDeControl organismo = propietario.getOrganismosDeControl().get(0);
             model.put("puedeAgregarMasEntidades",true);
             model.put("entidadPrestadora", organismo.getEntidadesPrestadoras());
-            context.render("/entidadPrestadora/index-entidadPrestadora.hbs", model);
+            context.render("entidadPrestadora/index-entidadPrestadora.hbs", model);
 
         } else if (propietario.getTipoPropietario().equals(TipoPropietario.ENTIDAD_PRESTADORA)) {
 
             if (!propietario.getEntidadesPrestadoras().isEmpty()) {
                 EntidadPrestadora entidadPrestadora = propietario.getEntidadesPrestadoras().get(0);
                 model.put("entidadPrestadora", entidadPrestadora);
-                context.render("/entidadPrestadora/index-entidadPrestadora.hbs", model);
+                context.render("entidadPrestadora/index-entidadPrestadora.hbs", model);
             } else {
                 model.put("textoEntidadPrestadoraEmpty",true);
-                context.render("/texto/texto-transparente-general.hbs", model);
+                context.render("texto/texto-transparente-general.hbs", model);
             }
         }
     }
@@ -72,7 +72,7 @@ public class EntidadPrestadoraPController extends Controller implements ICrudVie
 
         model.put("entidadPrestadora",entidadPrestadora);
         model.put("propietario",true);
-        context.render("/entidadPrestadora/show-entidadPrestadora.hbs",model);
+        context.render("entidadPrestadora/show-entidadPrestadora.hbs",model);
     }
 
     @Override
@@ -81,7 +81,7 @@ public class EntidadPrestadoraPController extends Controller implements ICrudVie
 
         Map<String,Object> model = new HashMap<>();
         model.put("propietario","true");
-        context.render("/entidadPrestadora/create-entidadPrestadora.hbs",model);
+        context.render("entidadPrestadora/create-entidadPrestadora.hbs",model);
     }
 
     @Override
@@ -119,7 +119,7 @@ public class EntidadPrestadoraPController extends Controller implements ICrudVie
 
         model.put("entidadPrestadora",entidadPrestadora);
         model.put("propietario", true);
-        context.render("/entidadPrestadora/edit-entidadPrestadora.hbs",model);
+        context.render("entidadPrestadora/edit-entidadPrestadora.hbs",model);
 
     }
 

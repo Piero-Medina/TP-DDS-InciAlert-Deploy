@@ -54,7 +54,7 @@ public class NotificacionController extends Controller implements ICrudViewsHand
 
         model.put("notificacion",notificacion);
         model.put("ciudadano",true);
-        context.render("/notificacion/show-notificacion.hbs",model);
+        context.render("notificacion/show-notificacion.hbs",model);
     }
 
     public void showDetalle(Context context) {
@@ -66,7 +66,7 @@ public class NotificacionController extends Controller implements ICrudViewsHand
         model.put("detalleNotificaiones","true");
         model.put("persona",ciudadano);
         model.put("ciudadano",true);
-        context.render("/login/show-login.hbs",model);
+        context.render("login/show-login.hbs",model);
     }
 
     @Override
@@ -93,7 +93,7 @@ public class NotificacionController extends Controller implements ICrudViewsHand
         model.put("editNotificaciones",true);
         model.put("persona",ciudadano);
         model.put("ciudadano", true);
-        context.render("/login/edit-login.hbs",model);
+        context.render("login/edit-login.hbs",model);
     }
 
     @Override

@@ -90,7 +90,7 @@ public class PrestacionController extends Controller implements ICrudViewsHandle
             model.put("ciudadano",true);
         }
 
-        context.render("/prestacionDeServicio/show-prestacionDeServicio.hbs",model);
+        context.render("prestacionDeServicio/show-prestacionDeServicio.hbs",model);
 
     }
 
@@ -111,7 +111,7 @@ public class PrestacionController extends Controller implements ICrudViewsHandle
         model.put("servicios",servicios);
         model.put("propietario","true");
 
-        context.render("/prestacionDeServicio/create-prestacionDeServicio.hbs",model);
+        context.render("prestacionDeServicio/create-prestacionDeServicio.hbs",model);
     }
 
     @Override
@@ -154,7 +154,7 @@ public class PrestacionController extends Controller implements ICrudViewsHandle
         model.put("servicios",servicios);
         model.put("propietario","true");
 
-        context.render("/prestacionDeServicio/edit-prestacionDeServicio.hbs",model);
+        context.render("prestacionDeServicio/edit-prestacionDeServicio.hbs",model);
 
 
     }
@@ -227,7 +227,7 @@ public class PrestacionController extends Controller implements ICrudViewsHandle
         // para ver los detalles de una prestacionDeServicio en Ciudadano y no cambiar de ruta se agrego
         // un metodo que me devuelve el ID del establecimiento al cual pertenece la PrestacionDeServicio
         model.put("ciudadano",true);
-        context.render("/prestacionDeServicio/index-prestacionDeInteresC.hbs",model);
+        context.render("prestacionDeServicio/index-prestacionDeInteresC.hbs",model);
     }
 
     public void agregarInteres(Context context){
@@ -242,7 +242,7 @@ public class PrestacionController extends Controller implements ICrudViewsHandle
         if(ciudadano.getMedioDeNotificacion() == null){
             model.put("sinMedioDeNotificacionParaServicioDeInteres", true);
             model.put("ciudadano",true);
-            context.render("/texto/texto-transparente-general.hbs",model);
+            context.render("texto/texto-transparente-general.hbs",model);
         }
         else if(!ciudadano.getInteres().contains(prestacionDeServicio)){
             ciudadano.agregarAServiciosDeInteres(prestacionDeServicio);
@@ -253,7 +253,7 @@ public class PrestacionController extends Controller implements ICrudViewsHandle
         }else {
             model.put("existePrestacionDeServicio",true);
             model.put("ciudadano",true);
-            context.render("/texto/texto-transparente-general.hbs",model);
+            context.render("texto/texto-transparente-general.hbs",model);
         }
     }
 

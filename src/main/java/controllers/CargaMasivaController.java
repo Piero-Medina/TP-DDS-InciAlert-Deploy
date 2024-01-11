@@ -139,13 +139,13 @@ public class CargaMasivaController extends Controller implements ICrudViewsHandl
 
         if(primeraVez) {
             if (propietario.getTipoPropietario().equals(TipoPropietario.ORGANISMO_DE_CONTROL)) {
-                context.redirect("/organismosDeControl/crear");
+                context.redirect("organismosDeControl/crear");
             } else if (propietario.getTipoPropietario().equals(TipoPropietario.ENTIDAD_PRESTADORA)) {
-                context.redirect("/entidadesPrestadoras/crear");
+                context.redirect("entidadesPrestadoras/crear");
             } else if (propietario.getTipoPropietario().equals(TipoPropietario.SIN_TIPO)) {
                 Map<String,Object> model = new HashMap<>();
                 model.put("propietario",true);
-                context.render("/texto/texto-tranparente-sinTipoDePropietario.hbs",model);
+                context.render("texto/texto-tranparente-sinTipoDePropietario.hbs",model);
             }
         }
         else{

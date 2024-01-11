@@ -39,7 +39,7 @@ public class EntidadPController extends Controller implements ICrudViewsHandler 
     public void indexTest(Context context) {
         Map<String, Object> model = new HashMap<>();
         model.put("propietario","true");
-        context.render("/entidad/edit-entidad.hbs",model);
+        context.render("entidad/edit-entidad.hbs",model);
         //context.render("editP/edit_entidadP.hbs"); edicion
     }
 
@@ -56,7 +56,7 @@ public class EntidadPController extends Controller implements ICrudViewsHandler 
         model.put("entidad", entidadesDTOS);
 
         model.put("propietario",true);
-        context.render("/entidad/index-entidad.hbs", model);
+        context.render("entidad/index-entidad.hbs", model);
     }
 
     public void indexAll(Context context){
@@ -69,7 +69,7 @@ public class EntidadPController extends Controller implements ICrudViewsHandler 
         model.put("entidadesNuevas",true);
         model.put("entidad",entidadesDTOS);
         model.put("ciudadano",true);
-        context.render("/entidad/index-entidadC.hbs",model);
+        context.render("entidad/index-entidadC.hbs",model);
     }
 
     private List<Entidad> entidadesActivas(List<Entidad> entidades){
@@ -89,7 +89,7 @@ public class EntidadPController extends Controller implements ICrudViewsHandler 
         model.put("entidad",entidadDTO);
         model.put("localizacion", entidadDTO.getLocalizacionDTO());
         model.put("ciudadano",true);
-        context.render("/entidad/show-entidad.hbs",model);
+        context.render("entidad/show-entidad.hbs",model);
     }
 
 
@@ -115,7 +115,7 @@ public class EntidadPController extends Controller implements ICrudViewsHandler 
         this.checkLocalizacionDTO(model,entidad);
 
         model.put("propietario",true);
-        context.render("/entidad/show-entidad.hbs",model);
+        context.render("entidad/show-entidad.hbs",model);
     }
 
     public void checkLocalizacionDTO (Map<String,Object> model, Entidad entidad){
@@ -135,7 +135,7 @@ public class EntidadPController extends Controller implements ICrudViewsHandler 
         model.put("entidadPrestadora",entidadPrestadora);
 
         model.put("propietario", true);
-        context.render("/entidad/create-entidad.hbs",model);
+        context.render("entidad/create-entidad.hbs",model);
     }
 
     @Override
@@ -171,7 +171,7 @@ public class EntidadPController extends Controller implements ICrudViewsHandler 
         this.checkLocalizacionDTO(model, entidad);
 
         model.put("propietario",true);
-        context.render("/entidad/edit-entidad.hbs",model);
+        context.render("entidad/edit-entidad.hbs",model);
     }
 
     @Override

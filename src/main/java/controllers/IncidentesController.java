@@ -46,7 +46,7 @@ public class IncidentesController extends Controller implements ICrudViewsHandle
         model.put("incidentes", incidentesActivos);
 
         model.put("ciudadano", true);
-        context.render("/incidente/index-incidente.hbs",model);
+        context.render("incidente/index-incidente.hbs",model);
     }
 
     public void indexAll(Context context){
@@ -64,7 +64,7 @@ public class IncidentesController extends Controller implements ICrudViewsHandle
         model.put("incidentes", incidentesIndiscriminados);
 
         model.put("propietario", true);
-        context.render("/incidente/index-incidente.hbs",model);
+        context.render("incidente/index-incidente.hbs",model);
     }
 
     public void indexAbiertos(Context context){
@@ -81,7 +81,7 @@ public class IncidentesController extends Controller implements ICrudViewsHandle
         model.put("incidentes", this.misIncidentesAbiertos(incidentesActivos));
 
         model.put("ciudadano", true);
-        context.render("/incidente/index-incidente.hbs",model);
+        context.render("incidente/index-incidente.hbs",model);
     }
 
     public List<Incidente> misIncidentesAbiertos(List<Incidente> incidentes){
@@ -102,7 +102,7 @@ public class IncidentesController extends Controller implements ICrudViewsHandle
         model.put("incidentes", this.misIncidentesCerrados(incidentesActivos));
 
         model.put("ciudadano", true);
-        context.render("/incidente/index-incidente.hbs",model);
+        context.render("incidente/index-incidente.hbs",model);
     }
 
     public List<Incidente> misIncidentesCerrados(List<Incidente> incidentes){
@@ -142,7 +142,7 @@ public class IncidentesController extends Controller implements ICrudViewsHandle
 
         if(ciudadano.getMedioDeNotificacion() == null){
             model.put("sinMedioDeNotificacionParaReportarIncidente", true);
-            context.render("/texto/texto-transparente-general.hbs",model);
+            context.render("texto/texto-transparente-general.hbs",model);
         } else {
             model.put("prestacion", prestacionDeServicio);
             context.render("incidente/create-incidente.hbs", model);

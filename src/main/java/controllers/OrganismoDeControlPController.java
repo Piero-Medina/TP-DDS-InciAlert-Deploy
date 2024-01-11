@@ -51,7 +51,7 @@ public class OrganismoDeControlPController extends Controller implements ICrudVi
 
         model.put("organismo",organismoDeControl);
         model.put("propietario",true);
-        context.render("/orgDeControl/show-OrgDeControl.hbs",model);
+        context.render("orgDeControl/show-OrgDeControl.hbs",model);
 
     }
 
@@ -62,7 +62,7 @@ public class OrganismoDeControlPController extends Controller implements ICrudVi
 
         Map<String,Object> model = new HashMap<>();
         model.put("propietario",true);
-        context.render("/orgDeControl/create-OrgDeControl.hbs",model);
+        context.render("orgDeControl/create-OrgDeControl.hbs",model);
     }
 
     // este metod estara restringida, ya que solo peude crear el propietario
@@ -89,7 +89,7 @@ public class OrganismoDeControlPController extends Controller implements ICrudVi
         Map<String, Object> model = new HashMap<>();
         model.put("organismoDeControl", organismoDeControl);
         model.put("propietario","true");
-        context.render("/orgDeControl/edit-OrgDeControl.hbs", model);
+        context.render("orgDeControl/edit-OrgDeControl.hbs", model);
 
     }
 

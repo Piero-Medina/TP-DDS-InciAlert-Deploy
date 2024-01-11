@@ -55,7 +55,7 @@ public class EstablecimientoPController extends Controller implements ICrudViews
             model.put("establecimiento", establecimientoDTOS);
             model.put("propietario", true);
 
-            context.render("/establecimiento/index-establecimiento.hbs", model);
+            context.render("establecimiento/index-establecimiento.hbs", model);
         }
         if(usuario.getRol().getTipo().equals(TipoRol.CIUDADANO)){
             List<EstablecimientoDTO> establecimientoDTOS = this.establecimientosAEstablecimientoDTOs(entidad.getEstablecimientos());
@@ -64,7 +64,7 @@ public class EstablecimientoPController extends Controller implements ICrudViews
             model.put("establecimiento",establecimientoDTOS);
             model.put("ciudadano",true);
 
-            context.render("/establecimiento/index-establecimientoC.hbs",model);
+            context.render("establecimiento/index-establecimientoC.hbs",model);
 
         }
     }
@@ -87,14 +87,14 @@ public class EstablecimientoPController extends Controller implements ICrudViews
             model.put("establecimiento",establecimientoDTO);
             model.put("localizacion",establecimientoDTO.getLocalizacionDTO());
             model.put("propietario", "true");
-            context.render("/establecimiento/show-establecimiento.hbs", model);
+            context.render("establecimiento/show-establecimiento.hbs", model);
         }
         if(usuario.getRol().getTipo().equals(TipoRol.CIUDADANO)){
             model.put("entidad",entidad);
             model.put("establecimiento",establecimientoDTO);
             model.put("localizacion",establecimientoDTO.getLocalizacionDTO());
             model.put("ciudadano", "true");
-            context.render("/establecimiento/show-establecimiento.hbs", model);
+            context.render("establecimiento/show-establecimiento.hbs", model);
         }
     }
 
@@ -107,7 +107,7 @@ public class EstablecimientoPController extends Controller implements ICrudViews
         model.put("entidad",entidad);
 
         model.put("propietario", true);
-        context.render("/establecimiento/create-establecimiento.hbs",model);
+        context.render("establecimiento/create-establecimiento.hbs",model);
     }
 
     @Override
@@ -141,7 +141,7 @@ public class EstablecimientoPController extends Controller implements ICrudViews
         this.checkLocalizacionDTO(model, establecimiento);
 
         model.put("propietario",true);
-        context.render("/establecimiento/edit-establecimiento.hbs",model);
+        context.render("establecimiento/edit-establecimiento.hbs",model);
     }
 
     public void checkLocalizacionDTO (Map<String,Object> model, Establecimiento establecimiento){
@@ -183,7 +183,7 @@ public class EstablecimientoPController extends Controller implements ICrudViews
         this.repositorioEstablecimiento.update(establecimiento);
         this.repositorioEntidad.update(entidad);
 
-        context.redirect("entidades/"+idEntidad+"/establecimientos");
+        context.redirect("/entidades/"+idEntidad+"/establecimientos");
     }
 
     public List<EstablecimientoDTO> establecimientosAEstablecimientoDTOs(List<Establecimiento> establecimientos ){

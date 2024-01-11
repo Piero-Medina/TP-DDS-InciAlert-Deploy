@@ -31,7 +31,7 @@ public class ServiciosController extends Controller implements ICrudViewsHandler
 
         model.put("servicios", servicios);
         model.put("administrador",true);
-        context.render("/servicio/index-servicio.hbs", model);
+        context.render("servicio/index-servicio.hbs", model);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ServiciosController extends Controller implements ICrudViewsHandler
         }
 
         model.put("administrador",true);
-        context.render("/servicio/create-servicio.hbs");
+        context.render("servicio/create-servicio.hbs");
     }
 
     @Override
@@ -82,7 +82,7 @@ public class ServiciosController extends Controller implements ICrudViewsHandler
 
         model.put("servicio", servicio);
         model.put("administrador",true);
-        context.render("/servicio/edit-servicio.hbs", model);
+        context.render("servicio/edit-servicio.hbs", model);
     }
 
     @Override

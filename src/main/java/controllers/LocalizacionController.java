@@ -36,7 +36,7 @@ public class LocalizacionController extends Controller {
             this.asignarTipoYIdDeEntidad(model, idEntidadA, idEntidad, tipoEntidad);
 
             model.put("propietario", "true");
-            context.render("/localizacion/create-localizacion.hbs", model);
+            context.render("localizacion/create-localizacion.hbs", model);
         }
     }
 
@@ -73,7 +73,7 @@ public class LocalizacionController extends Controller {
             model.put("tipoLocalizacion",tipoLocalizacion);
 
             model.put("propietario","true");
-            context.render("/localizacion/index1-localizacion.hbs",model);
+            context.render("localizacion/index1-localizacion.hbs",model);
         }
     }
 
@@ -137,7 +137,7 @@ public class LocalizacionController extends Controller {
             // para entrar al IF de la vista Especifica, ya que index2 tiene dos vistas
             model.put("departamentoOk","true");
             model.put("propietario","true");
-            context.render("/localizacion/index2-localizacion.hbs",model);
+            context.render("localizacion/index2-localizacion.hbs",model);
         }
     }
 
@@ -186,7 +186,7 @@ public class LocalizacionController extends Controller {
             // para entrar al IF de la vista Especifica, ya que index2 tiene dos vistas
             model.put("municipioOk","true");
             model.put("propietario","true");
-            context.render("/localizacion/index2-localizacion.hbs",model);
+            context.render("localizacion/index2-localizacion.hbs",model);
         }
     }
 
