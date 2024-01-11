@@ -279,18 +279,17 @@ public class InicializadorDeDatos implements WithSimplePersistenceUnit {
         if (cantidadComunidades == 0) {
             // Consulta para insertar comunidades
             String[] consultasComunidades = {
-                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Amantes de la Naturaleza', 'Comunidad para aquellos apasionados por la belleza natural y la conservación del medio ambiente.', 1)",
-                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Programadores Creativos', 'Un lugar para desarrolladores que buscan fusionar la programación con la creatividad y la innovación.', 1)",
-                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Viajeros Intrépidos', 'Conéctate con personas que comparten la pasión por explorar el mundo y descubrir nuevos destinos emocionantes.', 1)",
-                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Chefs en Casa', 'Comunidad dedicada a los amantes de la cocina casera, donde se comparten recetas, consejos y experiencias culinarias.', 1)",
-                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Fotógrafos en Foco', 'Únete a nosotros para compartir tus habilidades fotográficas, aprender nuevas técnicas y explorar el mundo de la fotografía.', 1)",
-                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Amigos del Libro', 'Una comunidad para lectores ávidos que desean discutir y compartir sus libros favoritos, recomendaciones y opiniones literarias.', 1)",
-                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Melómanos Unidos', 'Conecta con amantes de la música de todas las épocas y géneros para discutir, descubrir y compartir nuevas melodías.', 1)",
-                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Artistas en Ascenso', 'Un espacio dedicado a artistas emergentes que buscan inspiración, colaboración y apoyo mutuo en sus carreras creativas.', 1)",
-                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Entusiastas del Fitness', 'Únete a nosotros para hablar sobre rutinas de ejercicio, nutrición saludable y motivación para mantener un estilo de vida activo.', 1)",
-                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Jugadores Virtuales', 'Comunidad para aficionados a los videojuegos, donde puedes discutir tus juegos favoritos, estrategias y últimas novedades en el mundo del gaming.', 1)"
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Amantes de la Naturaleza', 'Comunidad para aquellos apasionados por la belleza natural y la conservación del medio ambiente.', true)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Programadores Creativos', 'Un lugar para desarrolladores que buscan fusionar la programación con la creatividad y la innovación.', true)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Viajeros Intrépidos', 'Conéctate con personas que comparten la pasión por explorar el mundo y descubrir nuevos destinos emocionantes.', true)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Chefs en Casa', 'Comunidad dedicada a los amantes de la cocina casera, donde se comparten recetas, consejos y experiencias culinarias.', true)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Fotógrafos en Foco', 'Únete a nosotros para compartir tus habilidades fotográficas, aprender nuevas técnicas y explorar el mundo de la fotografía.', true)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Amigos del Libro', 'Una comunidad para lectores ávidos que desean discutir y compartir sus libros favoritos, recomendaciones y opiniones literarias.', true)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Melómanos Unidos', 'Conecta con amantes de la música de todas las épocas y géneros para discutir, descubrir y compartir nuevas melodías.', true)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Artistas en Ascenso', 'Un espacio dedicado a artistas emergentes que buscan inspiración, colaboración y apoyo mutuo en sus carreras creativas.', true)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Entusiastas del Fitness', 'Únete a nosotros para hablar sobre rutinas de ejercicio, nutrición saludable y motivación para mantener un estilo de vida activo.', true)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Jugadores Virtuales', 'Comunidad para aficionados a los videojuegos, donde puedes discutir tus juegos favoritos, estrategias y últimas novedades en el mundo del gaming.', true)"
             };
-
 
             // Bucle for para ejecutar las consultas de comunidades
             for (String consulta : consultasComunidades) {
@@ -311,12 +310,13 @@ public class InicializadorDeDatos implements WithSimplePersistenceUnit {
         if (cantidadComunidades == 0) {
             // Consulta para insertar comunidades
             String[] consultasServicios = {
-                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Escaleras Mecánicas', 'Servicio de escaleras mecánicas para facilitar el desplazamiento', 1)",
-                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Ascensores', 'Sistema de ascensores para facilitar el transporte vertical dentro de un complejo', 1)",
-                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Baños', 'Servicio de instalaciones sanitarias para comodidad de los clientes', 1)",
-                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Molinete', 'Servicio que proporciona el control de acceso mediante la instalación y operación de molinetes automáticos', 1)",
-                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Área de Descanso', 'Servicio que proporciona áreas diseñadas para el descanso y bienestar de los usuarios', 1)"
+                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Escaleras Mecánicas', 'Servicio de escaleras mecánicas para facilitar el desplazamiento', true)",
+                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Ascensores', 'Sistema de ascensores para facilitar el transporte vertical dentro de un complejo', true)",
+                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Baños', 'Servicio de instalaciones sanitarias para comodidad de los clientes', true)",
+                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Molinete', 'Servicio que proporciona el control de acceso mediante la instalación y operación de molinetes automáticos', true)",
+                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Área de Descanso', 'Servicio que proporciona áreas diseñadas para el descanso y bienestar de los usuarios', true)"
             };
+
 
             // Bucle for para ejecutar las consultas de servicios
             for (String consulta : consultasServicios) {
@@ -327,3 +327,32 @@ public class InicializadorDeDatos implements WithSimplePersistenceUnit {
     }
 
 }
+
+
+/*
+My SQL
+String[] consultasComunidades = {
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Amantes de la Naturaleza', 'Comunidad para aquellos apasionados por la belleza natural y la conservación del medio ambiente.', 1)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Programadores Creativos', 'Un lugar para desarrolladores que buscan fusionar la programación con la creatividad y la innovación.', 1)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Viajeros Intrépidos', 'Conéctate con personas que comparten la pasión por explorar el mundo y descubrir nuevos destinos emocionantes.', 1)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Chefs en Casa', 'Comunidad dedicada a los amantes de la cocina casera, donde se comparten recetas, consejos y experiencias culinarias.', 1)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Fotógrafos en Foco', 'Únete a nosotros para compartir tus habilidades fotográficas, aprender nuevas técnicas y explorar el mundo de la fotografía.', 1)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Amigos del Libro', 'Una comunidad para lectores ávidos que desean discutir y compartir sus libros favoritos, recomendaciones y opiniones literarias.', 1)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Melómanos Unidos', 'Conecta con amantes de la música de todas las épocas y géneros para discutir, descubrir y compartir nuevas melodías.', 1)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Artistas en Ascenso', 'Un espacio dedicado a artistas emergentes que buscan inspiración, colaboración y apoyo mutuo en sus carreras creativas.', 1)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Entusiastas del Fitness', 'Únete a nosotros para hablar sobre rutinas de ejercicio, nutrición saludable y motivación para mantener un estilo de vida activo.', 1)",
+                    "INSERT INTO comunidad (nombre, descripcion, activo) VALUES ('Jugadores Virtuales', 'Comunidad para aficionados a los videojuegos, donde puedes discutir tus juegos favoritos, estrategias y últimas novedades en el mundo del gaming.', 1)"
+            };
+*/
+
+
+/*
+My SQL
+String[] consultasServicios = {
+                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Escaleras Mecánicas', 'Servicio de escaleras mecánicas para facilitar el desplazamiento', 1)",
+                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Ascensores', 'Sistema de ascensores para facilitar el transporte vertical dentro de un complejo', 1)",
+                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Baños', 'Servicio de instalaciones sanitarias para comodidad de los clientes', 1)",
+                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Molinete', 'Servicio que proporciona el control de acceso mediante la instalación y operación de molinetes automáticos', 1)",
+                    "INSERT INTO servicio (nombre, descripcion, activo) VALUES ('Área de Descanso', 'Servicio que proporciona áreas diseñadas para el descanso y bienestar de los usuarios', 1)"
+            };
+*/

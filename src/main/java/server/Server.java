@@ -7,6 +7,7 @@ import io.javalin.Javalin;
 import io.javalin.config.JavalinConfig;
 import io.javalin.http.HttpStatus;
 import io.javalin.rendering.JavalinRenderer;
+import models.dominio.Pruebas;
 import server.handlers.AppHandlers;
 import server.middlewares.AuthMiddleware;
 
@@ -30,6 +31,7 @@ public class Server {
             app = Javalin.create(config()).start(port);
             initTemplateEngine();
             AppHandlers.applyHandlers(app); // 2
+            new Pruebas().transaccion();
             new InicializadorDeDatos().inicializarDatos();
             Router.init();
         }

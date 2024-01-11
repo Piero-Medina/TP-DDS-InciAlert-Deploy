@@ -37,11 +37,21 @@ public class Incidente extends Persistente {
     @Column(name = "observaciones", columnDefinition = "TEXT")
     private String observaciones;
 
+    //postGress
+    @Column(name = "fechaApertura", columnDefinition = "TIMESTAMP")
+    private LocalDateTime fechaApertura;
+
+    @Column(name = "fechaCierre", columnDefinition = "TIMESTAMP", nullable = true)
+    private LocalDateTime fechaCierre;
+
+
+    /* My SQL
     @Column(name = "fechaApertura", columnDefinition = "DATETIME")
     private LocalDateTime fechaApertura;
 
     @Column(name = "fechaCierre", columnDefinition = "DATETIME", nullable = true)
     private LocalDateTime fechaCierre;
+     */
 
     @Column(name = "estadoIncidente", columnDefinition = "BOOLEAN")
     private Boolean estadoIncidente;

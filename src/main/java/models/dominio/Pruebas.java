@@ -73,7 +73,7 @@ public class Pruebas implements WithSimplePersistenceUnit{
 
     }
 
-    private void transaccion(){
+    public void transaccion(){
         EntityTransaction tx = entityManager().getTransaction();
         tx.begin();
         // accion
@@ -86,8 +86,8 @@ public class Pruebas implements WithSimplePersistenceUnit{
          */
 
         tx.commit();
-        String currentWorkingDirectory = System.getProperty("user.dir");
-        System.out.println("Directorio de trabajo actual: " + currentWorkingDirectory);
+        //String currentWorkingDirectory = System.getProperty("user.dir");
+        //System.out.println("Directorio de trabajo actual: " + currentWorkingDirectory);
 
     }
 

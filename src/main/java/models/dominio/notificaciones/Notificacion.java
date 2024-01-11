@@ -38,8 +38,14 @@ public class Notificacion extends Persistente {
     @Column(name = "enviado")
     private Boolean enviado;
 
+    // post gress
+    @Column(name = "fecha_de_envio", columnDefinition = "TIMESTAMP")
+    private LocalDateTime fechaYHoraDeEnvio;
+
+    /* MySQL
     @Column(name = "fecha_de_envio", columnDefinition = "DATETIME")
     private LocalDateTime fechaYHoraDeEnvio;
+     */
 
     @Column(name = "titulo")
     private String titulo;
