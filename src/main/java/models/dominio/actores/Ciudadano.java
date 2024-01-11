@@ -30,16 +30,16 @@ import java.util.Objects;
 @Setter
 public class Ciudadano extends Persistente {
 
-    @Column(name = "nombre", columnDefinition = "VARCHAR(55)")
+    @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "apellido", columnDefinition = "VARCHAR(55)")
+    @Column(name = "apellido")
     private String apellido;
 
-    @Column(name = "numeroDeTelefono", columnDefinition = "VARCHAR(55)")
+    @Column(name = "numeroDeTelefono")
     private String numeroDeTelefono;
 
-    @Column(name = "mail", columnDefinition = "VARCHAR(55)")
+    @Column(name = "mail")
     private String mail;
 
     // unidireccional

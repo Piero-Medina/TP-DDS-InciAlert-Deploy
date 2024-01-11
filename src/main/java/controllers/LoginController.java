@@ -62,7 +62,7 @@ public class LoginController extends Controller implements ICrudViewsHandler {
     public void show(Context context) {
         Usuario usuario = super.usuarioLogueado(context);
         Map<String,Object> model = new HashMap<>();
-        model.put("detalleCuenta","true");
+        model.put("detalleCuenta",true);
 
         if(usuario.getRol().getTipo().equals(TipoRol.PROPIETARIO)){
             Propietario propietario = super.PropietarioLogueadoSuper(context);

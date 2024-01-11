@@ -14,25 +14,46 @@
 </head>
 <body>
 
-<!-- Encabezado - header-->
-<header class="p-2">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                    <image href="img/people.svg" width="40" height="32" />
-                </svg>
-            </a>
+<style>
+    .navbar-toggler {
+        background-color: #154f76; /* Cambiar el color del botón del toggler */
+    }
+</style>
 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/" class="nav-link px-2 text-white">Inicio</a></li>
-                <li><a href="https://runrun.es/wp-content/uploads/2014/05/SELFIES-DE-ANIMALES-0-NOTI.IN_.jpg" class="nav-link px-2 text-white">Sobre Nosotros</a></li>
-                <li><a href="https://www.youtube.com/watch?v=LbQk3bVVMO8" class="nav-link px-2 text-white">Videos</a></li>
-                <li><a href="https://www.metro951.com/wp-content/uploads/2014/09/Silvio-Medeiros-The-Wildlife-2.jpg" class="nav-link px-2 text-white">Acerca De</a></li>
+<!-- Barra de navegacion - simulando header -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                <image href="img/people.svg" width="40" height="32" />
+            </svg>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/">Inicio</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="https://runrun.es/wp-content/uploads/2014/05/SELFIES-DE-ANIMALES-0-NOTI.IN_.jpg">Sobre Nosotros</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="https://www.youtube.com/watch?v=LbQk3bVVMO8">Videos</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="https://www.metro951.com/wp-content/uploads/2014/09/Silvio-Medeiros-The-Wildlife-2.jpg">Acerca De</a>
+                </li>
+
             </ul>
 
-            <div class="text-end">
+            <div class="d-lg-flex col-lg-3 justify-content-lg-end">
                 <a href="/login">
                     <button type="button" class="btn btn-outline-light me-2">Iniciar Sesión</button>
                 </a>
@@ -43,7 +64,8 @@
             </div>
         </div>
     </div>
-</header>
+</nav>
+
 
 <!-- Sección Principal - Hero -->
 <section class="medio">

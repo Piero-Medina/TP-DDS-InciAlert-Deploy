@@ -6,7 +6,6 @@ header {
 }
 
 body{
-
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -39,6 +38,21 @@ footer {
 .boton-registro{
     color: #091f7e;
 }
+
+/*Barra de navegacion - simulando header*/
+nav {
+    background-color: #0a2642;
+}
+ul.dropdown-menu {
+    background-color: #0a2642; /* Color de fondo para la lista desplegable */
+}
+ul.dropdown-menu a {
+    color: #ffffff !important; /* Color del texto en la lista desplegable */
+}
+ul.dropdown-menu a:hover {
+    background-color: #154f76; /* Color de fondo al pasar el cursor sobre las opciones */
+}
+
 
 
 
