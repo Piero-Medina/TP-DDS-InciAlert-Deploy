@@ -1,0 +1,102 @@
+{{#partial "contenido" }}
+    <style>
+        .custom-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px; /* Agrega bordes redondeados si lo deseas */
+        }
+    </style>
+
+    <!-- doble contenedor, para el fondo blanco y bordes-->
+    <!-- Vista de Detalles de Comunidad -->
+
+    <div class="container mt-5">
+        <div class="container mt-5 custom-container">
+            <!-- Información de la Comunidad -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Comunidad {{comunidad.getNombre}}</h5>
+                    <p class="card-text">Creadores: Nombre Del Creador</p>
+                    <p class="card-text">Administradores: {{comunidad.administradoresToString}}</p>
+                    <p class="card-text">Descripcion: {{comunidad.getDescripcion}}</p>
+                    <p class="card-text">Miembros: {{comunidad.getCantDeMiembros}}</p>
+                    <!-- Puedes agregar más detalles según sea necesario -->
+                </div>
+            </div>
+
+            {{#if ciudadanoPerteneceAComunidad}}
+            <!-- Pestañas para Usuarios e Incidentes -->
+            <ul class="nav nav-tabs mb-4">
+                <li class="nav-item">
+                    <a class="nav-link active" id="usuarios-tab" data-bs-toggle="tab" href="#usuarios">Miembros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="incidentes-tab" data-bs-toggle="tab" href="#incidentes">Incidentes</a>
+                </li>
+            </ul>
+
+            <!-- Contenido de las Pestañas -->
+            <div class="tab-content">
+                <!-- Pestaña de Usuarios -->
+                <div class="tab-pane fade show active" id="usuarios">
+                    <!-- Lista de Usuarios -->
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                        <!-- Usuario 1 -->
+                        {{#each miembro}}
+                        <div class="col">
+                            <div class="card bg-secondary">
+                                <!-- clase "p-2" para achicar el cuerpo de cada usuario-->
+                                <div class="card-body p-2">
+                                    <h5 class="card-title text-white">Miembro: {{this.getNombre}}</h5>
+                                    <!-- Puedes agregar más detalles según sea necesario -->
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                    </div>
+                </div>
+
+                <!-- Pestaña de Incidentes -->
+                <div class="tab-pane fade" id="incidentes">
+                    <!-- Lista de Incidentes -->
+                    <ul class="list-group">
+                        <!-- Incidente 1 -->
+                        {{#each incidentes}}
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-secondary">
+                            <div class="text-white">
+                                Incidente: {{this.getNombreIncidente}}
+                                <small class="text-white ms-2">Fecha: {{this.soloFechaDeApertura}} Hora: {{this.soloHoraDeApertura}}</small>
+                            </div>
+
+                            {{#if this.getEstadoIncidente}}
+                                <span class="badge bg-success me-2">Abierto</span>
+                            {{else}}
+                                <span class="badge bg-danger me-2">Cerrado</span>
+                            {{/if}}
+                            <a href="/prestaciones/{{this.idDeLaPrestacion}}/incidentes/{{this.getId}}" class="btn btn-ver-detalles me-2">Ver Detalles</a>
+                        </li>
+                        <br>
+                        {{/each}}
+                        <!-- Puedes agregar más incidentes según sea necesario -->
+                    </ul>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+        <!-- Botón para Volver -->
+        <div class="mt-4 d-flex justify-content-center">
+            <!--<a href="#" class="btn btn-secondary">Volver</a>-->
+            <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+        </div>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+
+{{/partial}}
+{{> templates/dashboard}}

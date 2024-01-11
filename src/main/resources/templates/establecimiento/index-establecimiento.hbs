@@ -1,0 +1,44 @@
+{{#partial "contenido" }}
+
+    <!-- color de fondo del incidente #154f76-->
+    <style>
+        /*agregando al div */
+        .custom-background {
+            background-color: #154f76;
+        }
+    </style>
+
+    <!-- Lista de Incidentes -->
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center text-white" >Establecimientos</h2>
+
+        <!-- Incidente 1 -->
+    {{#each establecimiento}}
+        <div class="card mb-3 custom-background text-white ">
+            <div class="card-body">
+                <h5 class="card-title">Establecimiento {{this.getNombre}}</h5>
+                <p class="card-text">Perteneciente A Entidad: {{this.deEntidad}}</p>
+                <p class="card-text">Descripcion: {{this.getDescripcion}}</p>
+                <p class="card-text">Localizacion: {{this.getLocalizacionDTONombre}} </p>
+
+                <a href="/entidades/{{entidad.getId}}/establecimientos/{{this.getId}}"> <button class="btn btn-info me-2">Ver en Detalle</button></a>
+                <a href="#"> <button class="btn btn-danger me-2">Eliminar Establecimiento</button></a>
+                <a href="/entidades/{{entidad.getId}}/establecimientos/{{this.getId}}/editar"> <button class="btn btn-warning me-2">Modificar Establecimiento</button></a>
+                <a href="/establecimientos/{{this.getId}}/prestaciones"> <button class="btn btn-primary me-2">Ver Servicios Prestados</button></a>
+            </div>
+        </div>
+    {{/each}}
+        <!-- Botón para Agregar Incidente -->
+        <div class="d-flex justify-content-center mb-4">
+            <a href="/entidades/{{entidad.getId}}/establecimientos/crear"><button class="btn btn-success me-2">Agregar Establecimiento</button></a>
+            <button class="btn btn-secondary" onclick="volverAtras()" >Volver</button>
+        </div>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

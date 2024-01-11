@@ -1,0 +1,65 @@
+{{#partial "contenido" }}
+    <style>
+        custom-background{
+            background-color: #0a2642;
+        }
+
+        .mt-5 {
+            margin-top: 3rem!important;
+            width: 70%;
+        }
+        form {
+            background-color: #154f76; /* Tu color personalizado para el formulario */
+        }
+
+        .form-control { /*colores para los imput del formulario*/
+            background-color: #dceaf3;
+            color: #35424a;
+            border: 1px solid #35424a;
+        }
+    </style>
+
+    <!-- clases de bootstrap -> text-black: color fw-bold: cuerpo -->
+    <!--<h5 class="card-title text-black fw-bold">Servicios:</h5>-->
+    <div class="container mt-5">
+        <h1 class="text-center mb-4 text-white">Modificar Localizacion</h1>
+
+        <form class="p-3 rounded" method="post" action="/{{idEntidad}}/{{tipoEntidad}}/localizacion/{{tipoLocalizacion}}">
+            <div class="accordion" id="accordionForm">
+                <!--<h1 class="text-center mb-4 text-white ">Formulario con Acordeón</h1>-->
+
+                <!-- Ejemplo de ubicación -->
+                <h5 class="card-subtitle mb-3 text-white fw-bold mt-3 text-center">Localizacion:</h5>
+                <p class="card-text text-white text-center">Tipo: Provincia</p>
+                <p class="card-text text-white text-center">Latitud: 123.456</p>
+                <p class="card-text text-white text-center">Longitud: -78.910</p>
+
+                <!-- para dejar una espacio entre entre el show y los botones-->
+                <div class="d-flex justify-content-center mb-4">
+
+                </div>
+
+                <div class="text-center mb-3">
+                    <button type="submit" class="btn btn-primary">Confirmar Localizacion</button>
+                </div>
+
+                <!-- Botones Dentro del fromulario - no centrados
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-secondary">Limpiar</button>
+                </div>
+                -->
+            </div>
+
+        </form>
+        <!-- para dejar una espacio entre entre el show y los botones-->
+        <div class="d-flex justify-content-center mb-4">
+
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-secondary me-2" type="button" onclick="volverAtras()" >Volver</button>
+        </div>
+
+    </div>
+{{/partial}}
+{{> templates/dashboard}}

@@ -1,0 +1,130 @@
+{{#partial "contenido" }}
+    <style>
+        .mt-5 {
+            margin-top: 3rem!important;
+            width: 50%;
+        }
+    </style>
+
+    <div class="container mt-5">
+
+        {{#if editCuenta}}
+        <form class="bg-light p-3 rounded" method="post" action="/login/edit">
+            <div class="accordion" id="accordionForm">
+                <h2 class="text-center mb-4">Editar Cuenta</h2>
+
+
+                <!-- Campo Normal -->
+                <div class="mb-3">
+                    <label for="campoNormal" class="form-label fw-bold">Nombre:</label>
+                    <input type="text" class="form-control" id="campoNormal" name="nombre" placeholder="{{persona.getNombre}}">
+                </div>
+                <!-- Campo Normal -->
+                <div class="mb-3">
+                    <label for="campoNormal" class="form-label fw-bold">Apellido:</label>
+                    <input type="text" class="form-control" id="campoNormal" name="apellido" placeholder="{{persona.getApellido}}">
+                </div>
+                <!-- Campo Normal -->
+                <div class="mb-3">
+                    <label for="campoNormal" class="form-label fw-bold">mail:</label>
+                    <input type="text" class="form-control" id="campoNormal" name="mail" placeholder="{{persona.getMail}}">
+                </div>
+
+                {{#if primeraVez}}
+                <!-- seleccinas Una Opcion -->  <!-- name = "category"  -->
+                <div class="mb-3">
+                    <label class="form-label"> Tipo De Propietario:</label>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="opcion1" value="DeOrganismo">
+                        <label class="form-check-label" for="opcion1">De Organismo De Control</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="opcion2" value="deEntidad">
+                        <label class="form-check-label" for="opcion2">De Entidad Prestadora</label>
+                    </div>
+
+                    <p class="text-danger"> Solo podra modificar el Tipo de Propietario una sola Vez</p>
+                </div>
+                {{/if}}
+                <div class="text-center mb-3">
+                    <button class="btn btn-primary" type="submit" >Confirmar Edicion</button>
+                </div>
+            </div>
+        </form>
+        {{/if}}
+
+        {{#if editNotificaciones}}
+            <form class="bg-light p-3 rounded" method="post" action="/notificaciones/configuracion/edit">
+                <div class="accordion" id="accordionForm">
+                    <h2 class="text-center mb-4">Configuracion De Envio De Notificaciones</h2>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Cuando Notificar:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cuandoNotificar" id="opcion1" value="cuandoSuceden">
+                            <label class="form-check-label" for="opcion1">Cuando Suceden</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cuandoNotificar" id="opcion2" value="sinApuros">
+                            <label class="form-check-label" for="opcion2">Sin Apuros</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="hora" class="form-label fw-bold">Horario Disponible Para Notificar En El Caso Sin Apuros:</label>
+                        <input type="time" class="form-control" id="hora" name="hora" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold"> Medio De Notificacion:</label>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="medioDeNotificacion" id="opcion1" value="whatsapp">
+                            <label class="form-check-label" for="opcion1">Whatsapp</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="medioDeNotificacion" id="opcion2" value="mail">
+                            <label class="form-check-label" for="opcion2">Mail</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label fw-bold">Número de Teléfono:</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="{{persona.numeroDeTelefonoText}}">
+                        <!-- Agrega el atributo "required" si deseas que el campo sea obligatorio -->
+                    </div>
+
+                    <!-- Campo Normal -->
+                    <div class="mb-3">
+                        <label for="campoNormal" class="form-label fw-bold">mail:</label>
+                        <input type="text" class="form-control" id="campoNormal" name="mail" placeholder="{{persona.getMail}}">
+                    </div>
+
+                    <div class="text-center mb-3">
+                        <button class="btn btn-primary" type="submit" >Confirmar Configuracion De Notificaciones</button>
+                    </div>
+                </div>
+            </form>
+        {{/if}}
+
+        <!-- para dejar una espacio -->
+        <div class="d-flex justify-content-center mb-4">
+        </div>
+
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+        </div>
+
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

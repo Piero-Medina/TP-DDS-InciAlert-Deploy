@@ -1,0 +1,42 @@
+ESTRUCTURA CSV:
+
+=> si el propietario es duenio de un Organismo De Control
+(podra tener muchas EntidadesPrestadoras (las cuales tendran entidades(las cuales tendran establecimientos)))
+
+ejemplo:
+Tipo,Nombre,Padre
+OrganismoDeControl,CNRT,Sin Padre
+EntidadPrestadora,Trenes Argentinos,CNRT
+Entidad,Linea Mitre,Trenes Argentinos
+Establecimiento,Estacion Retiro,Linea Mitre
+Establecimiento,Estacion Victoria,Linea Mitre
+Entidad,Linea San Martin,Trenes Argentinos
+Establecimiento,Estacion Retiro,Linea San Martin
+Establecimiento,Estacion Pilar,Linea San Martin
+EntidadPrestadora,EMOVA,CNRT
+Entidad,Linea A,EMOVA
+Establecimiento,Estacion Plaza De Mayo,Linea A
+Establecimiento,Estacion San Pedrito,Linea A
+Entidad,Linea C,EMOVA
+Establecimiento,Estacion Retiro,Linea C
+Establecimiento,Estacion Constitucion,Linea C
+
+
+=> si el propietario es duenio de una Entidad Prestadora
+(podra tener muchas entidades(las cuales tendran establecimientos))
+
+ejemplo:
+Tipo,Nombre,Padre
+EntidadPrestadora,Trenes Argentinos,Sin Padre
+Entidad,Linea Mitre,Trenes Argentinos
+Establecimiento,Estacion Retiro,Linea Mitre
+Establecimiento,Estacion Victoria,Linea Mitre
+Entidad,Linea San Martin,Trenes Argentinos
+Establecimiento,Estacion Retiro,Linea San Martin
+Establecimiento,Estacion Pilar,Linea San Martin
+
+IMPORTANTE:
+no dejar espacios entre "," y no dar un salto de linea en la ultima linea del archivo.CSV
+
+NOTAS:
+- las localizaciones seran agregadas a mano por la aplicacion

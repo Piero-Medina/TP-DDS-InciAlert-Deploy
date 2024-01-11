@@ -1,0 +1,98 @@
+{{#partial "contenido" }}
+
+    {{#if propietario}}
+        <style>
+            .card {
+                background-color: #154f76; /* Tu color personalizado para el bloque "card mb-3" */
+                color: white;
+            }
+        </style>
+    {{/if}}
+    <!-- Lista de Incidentes -->
+    {{#if lleno}}
+        <div class="container mt-5">
+            <h2 class="mb-4 text-white text-center">Servicios Prestados</h2>
+
+            <!-- Incidente 1 -->
+            {{#each prestado}}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Servicio Prestado {{this.getNombreServicioPrestado}}</h5>
+                        <p class="card-text">{{this.informacionDeServicioPrestado}}</p>
+                        <!-- usando el valor Boolean-->
+                        {{#if this.getEstadoDeServicioPrestado}}
+                            <p class="card-text">Estado: <span class="badge bg-success">Activo</span></p>
+                        {{else}}
+                            <p class="card-text">Estado: <span class="badge bg-danger">Inactivo</span></p>
+                        {{/if}}
+
+                        <!-- Botones para ver detalles y Agregar a servicios de interes -->
+                        <a href="/establecimientos/{{establecimiento.getId}}/prestaciones/{{this.getId}}" class="btn btn-info text-white me-2">Ver Detalles</a>
+
+                        {{#if ciudadano}}
+                            {{#if this.getEstadoDeServicioPrestado}}
+                                <a href="/prestaciones/{{this.getId}}/incidentes/crear" class="btn btn-reportar-incidente me-2">Reportar Un Incidente</a>
+                            {{else}}
+                                <a href="/prestaciones/{{this.getId}}/incidentes/{{this.getIdIncidenteActivo}}" class="btn btn-ver-detalles me-2">Ver Detalles Del Incidente</a>
+                                <a href="/incidentes/cerrar/{{this.getIdIncidenteActivo}}" class="btn btn-cerrar-incidente me-2">Cerrar Incidente</a>
+                            {{/if}}
+                        {{/if}}
+
+                        {{#if propietario}}
+                            <a href="/establecimientos/{{establecimiento.getId}}/prestaciones/eliminar/{{this.getId}}" class="btn btn-danger me-2">Eliminar Servicio Prestado</a>
+                            <a href="/establecimientos/{{establecimiento.getId}}/prestaciones/{{this.getId}}/editar" class="btn btn-warning me-2">Modificar Servicio Prestado</a>
+                            <a href="/prestaciones/{{this.getId}}/incidentes" class="btn btn-light me-2">Incidentes Ocurridos</a>
+                        {{/if}}
+
+                        {{#if ciudadano}}
+                        <a href="/prestaciones/{{this.getId}}/agregarInteres" class="btn btn-success me-2">Agregar A Servicio De Interes</a>
+                        {{/if}}
+                        <!--<button class="btn btn-info me-2">Ver en Detalle</button>
+                        <button class="btn btn-danger me-2">Eliminar Incidente</button>
+                        <button class="btn btn-warning">Modificar Incidente</button>-->
+                    </div>
+                </div>
+            {{/each}}
+
+            <!-- botones fuera de la lista-->
+            {{#if ciudadano}}
+                <div class="d-flex justify-content-center mb-4">
+                    <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+                </div>
+            {{/if}}
+            {{#if propietario}}
+                <div class="d-flex justify-content-center mb-4">
+                    <a href="/establecimientos/{{establecimiento.getId}}/prestaciones/crear"><button class="btn btn-success me-2">Agregar Prestacion De Servicio</button></a>
+                    <button class="btn btn-secondary me-2" onclick="volverAtras()">Volver</button>
+                </div>
+            {{/if}}
+
+        </div>
+    {{else}}
+
+        <div class="container mt-5">
+            <h3 class="mb-4 text-white text-center"> No Hay Prestaciones de Servicio </h3>
+        </div>
+
+        <!-- botones fuera de la lista-->
+        {{#if ciudadano}}
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+        </div>
+        {{/if}}
+        {{#if propietario}}
+            <div class="d-flex justify-content-center mb-4">
+                <a href="/establecimientos/{{establecimiento.getId}}/prestaciones/crear"><button class="btn btn-success me-2">Agregar Prestacion De Servicio</button></a>
+                <button class="btn btn-secondary me-2" onclick="volverAtras()">Volver</button>
+            </div>
+        {{/if}}
+
+    {{/if}}
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

@@ -1,0 +1,76 @@
+{{#partial "contenido" }}
+
+    {{#if propietario}}
+        <style>
+            .card {
+                background-color: #154f76; /* Tu color personalizado para el bloque "card mb-3" */
+                color: white;
+            }
+        </style>
+    {{/if}}
+    <!-- Lista de Incidentes -->
+    {{#if lleno}}
+        <div class="container mt-5">
+            <h2 class="mb-4 text-white text-center">Incidentes Reportados</h2>
+
+            <!-- Incidente 1 -->
+            {{#each incidentes}}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Incidente {{this.getNombreIncidente}}</h5>
+                        <p class="card-text">{{this.getObservaciones}}</p>
+                        <!-- usando el valor Boolean-->
+                        {{#if this.getEstadoIncidente}}
+                            <p class="card-text">Estado: <span class="badge bg-success">Abierto</span></p>
+                        {{else}}
+                            <p class="card-text">Estado: <span class="badge bg-danger">Cerrado</span></p>
+                        {{/if}}
+
+                        <!-- Botones para ver detalles y Agregar a servicios de interes -->
+                        <a href="/prestaciones/{{this.idDeLaPrestacion}}/incidentes/{{this.getId}}" class="btn btn-ver-detalles me-2">Ver Detalles Del Incidente</a>
+
+                        {{#if ciudadano}}
+                        {{#if this.getEstadoIncidente}}
+                            <a href="/incidentes/cerrar/{{this.getId}}" class="btn btn-cerrar-incidente me-2">Cerrar Incidente</a>
+                        {{/if}}
+                        <a href="/prestaciones/{{this.idDeLaPrestacion}}/incidentes/eliminar/{{this.getId}}" class="btn btn-danger me-2">Eliminar De Mis Incidentes</a>
+                        {{/if}}
+
+                    </div>
+                </div>
+            {{/each}}
+
+            <!-- botones fuera de la lista-->
+                <div class="d-flex justify-content-center mb-4">
+                    <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+                </div>
+
+        </div>
+    {{else}}
+
+        {{#if ciudadano}}
+        <div class="container mt-5">
+            <h3 class="mb-4 text-white text-center"> No Tienes Incidentes Reportados </h3>
+        </div>
+        {{/if}}
+
+        {{#if propietario}}
+            <div class="container mt-5">
+                <h3 class="mb-4 text-white text-center"> por el momento Esta Establecimiento Se encuentra sin Incidentes </h3>
+            </div>
+        {{/if}}
+
+        <!-- botones fuera de la lista-->
+            <div class="d-flex justify-content-center mb-4">
+                <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+            </div>
+
+    {{/if}}
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

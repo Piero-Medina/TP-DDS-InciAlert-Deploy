@@ -1,0 +1,74 @@
+{{#partial "contenido" }}
+
+    {{#if propietario}}
+        <style>
+            /*agregando al div */
+            .card {
+                background-color: #154f76; /* Tu color personalizado para el bloque "card mb-3" */
+                color: white;
+            }
+        </style>
+    {{/if}}
+
+    {{#if ciudadano}}
+        <style>
+            /*agregando al div */
+            .card {
+                color: black;
+            }
+        </style>
+    {{/if}}
+
+    <!-- clases de bootstrap -> text-black: color fw-bold: cuerpo -->
+    <!--<h5 class="card-title text-black fw-bold">Servicios:</h5>-->
+
+    <div class="container mt-5">
+        <h1 class="mb-4 text-white text-center">Detalles de la Entidad</h1>
+
+        <div class="card ">
+            <div class="card-body">
+                <h5 class="card-title ">Nombre de la Entidad:</h5>
+                <p class="card-text">{{entidad.getNombre}}</p>
+
+                <h5 class="card-title ">Localizacion:</h5>
+                {{#if localizacion}}
+                    <p class="card-text">Tipo: {{localizacion.getTipoDeLocalizacion}}</p>
+                    <p class="card-text">Nombre: {{localizacion.getNombre}}</p>
+                    <p class="card-text">Latitud: {{localizacion.getLatitud}}</p>
+                    <p class="card-text">Longitud: {{localizacion.getLongitud}}</p>
+                {{else}}
+                    <p class="card-text"> No Tiene Asignada Una Ubicacion</p>
+                {{/if}}
+
+                <!-- Ejemplo de una imagen -->
+                <h5 class="card-title ">Foto Representativa:</h5>
+                <img src="imagen.jpg" class="img-fluid rounded mb-3" alt="Imagen de la entidad">
+                <p class="card-text"></p> <!-- espacio -->
+
+                <!--  capas lo saquemos , en el SHOW solo se deveria poder ver mas a detalle la entidad y luego volver-->
+                {{#if ciudadano}}
+                <a href="/comunidades/{{entidade.getId}}" class="btn btn-primary text-white">Ver Servicios</a>
+                <a href="/comunidades/unirse/{{this.getId}}" class="btn btn-success">Agregar Como Entidad De Interes</a>
+                {{/if}}
+
+            </div>
+        </div>
+        <!-- para dejar una espacio entre entre el show y los botones-->
+        <div class="d-flex justify-content-center mb-4">
+        </div>
+
+        <div class="d-flex justify-content-center mb-4">
+            {{#if propietario}}
+            <a href="/entidadesPrestadoras/{{entidadPrestadora.getId}}/entidades/{{entidad.getId}}/editar"> <button class="btn btn-warning me-2">Modificar Entidad</button> </a>
+            {{/if}}
+            <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+        </div>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

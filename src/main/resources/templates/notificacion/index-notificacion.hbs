@@ -1,0 +1,38 @@
+{{#partial "contenido" }}
+    <!-- Vista de Notificaciones -->
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center text-white">Notificaciones</h2>
+
+        <!-- Lista de Notificaciones -->
+        <ul class="list-group">
+            <!-- Notificación 1 -->
+            {{#each notificaciones}}
+            <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{this.getTitulo}}</h5>
+                    <small>Fecha: {{this.fechaDeEnvio}} Hora: {{this.horaDeEnvio}}</small>
+                </div>
+                <p class="mb-1">{{this.mensajeLimitado}}</p>
+
+                <a href="/notificaciones/{{this.getId}}">
+                <button type="button" class="btn btn-primary" >Más Detalles</button>
+                </a>
+            </li>
+            <br>
+            {{/each}}
+            <!-- Puedes agregar más notificaciones según sea necesario -->
+        </ul>
+
+    </div>
+    <div class="d-flex justify-content-center mb-4">
+        <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+
+{{/partial}}
+{{> templates/dashboard}}

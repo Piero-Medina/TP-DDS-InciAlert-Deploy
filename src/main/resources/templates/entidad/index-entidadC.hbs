@@ -1,0 +1,48 @@
+{{#partial "contenido" }}
+
+    {{#if entidadesNuevas}}
+        <!-- Vista de Comunidades -->
+        <div class="container mt-5">
+            <h2 class="mb-4 text-white text-center">Entidades Disponibles</h2>
+
+            <!-- Lista de Comunidades -->
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                <!-- Comunidad 1 -->
+                {{#each entidad}}
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Entidad {{this.getNombre}} </h5>
+                                <p class="card-text"> Localizacion: {{this.getLocalizacionDTONombre}}</p>
+                                <!-- Botones para ver detalles y unirse -->
+                                <a href="/entidades/{{this.getId}}" class="btn btn-info text-white">Ver Detalles</a>
+                                <a href="/entidades/{{this.getId}}/establecimientos" class="btn btn-primary text-white">Ver Establecimientos</a>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+
+                <!-- Puedes agregar más comunidades según sea necesario -->
+            </div>
+            <div class="mt-4 d-flex justify-content-center">
+                <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+                <!--<a href="#" class="btn btn-primary ms-2">Agregar Comunidad</a>-->
+            </div>
+            <!-- para dejar una espacio -->
+            <div class="d-flex justify-content-center mb-4">
+            </div>
+        </div>
+    {{else}}
+        <div class="container mt-5">
+            <h3 class="mb-4 text-white text-center"> No Existen Entidades </h3>
+        </div>
+    {{/if}}
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

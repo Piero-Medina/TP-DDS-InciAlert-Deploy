@@ -1,0 +1,42 @@
+{{#partial "contenido" }}
+    <!-- Lista de Incidentes -->
+    {{#if misComunidades}}
+    <div class="container mt-5">
+        <h2 class="mb-4 text-white text-center">Mis Comunidades</h2>
+
+        <!-- Incidente 1 -->
+        {{#each comunidad}}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Comunidad {{this.getNombre}}</h5>
+                <p class="card-text">{{this.getDescripcionLimitada}}</p>
+                <p class="card-text">Miembros: {{this.getCantDeMiembros}}</p>
+
+                <!-- Botones para ver detalles y unirse -->
+                <a href="/comunidades/{{this.getId}}" class="btn btn-info text-white">Ver Detalles</a>
+                <a href="/comunidades/abandonar/{{this.getId}}" class="btn btn-danger">Abandonar</a>
+                <!--<button class="btn btn-info me-2">Ver en Detalle</button>
+                <button class="btn btn-danger me-2">Eliminar Incidente</button>
+                <button class="btn btn-warning">Modificar Incidente</button>-->
+            </div>
+        </div>
+        {{/each}}
+
+        <!-- Botón para Agregar Incidente -->
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+        </div>
+    </div>
+    {{else}}
+        <div class="container mt-5">
+            <h3 class="mb-4 text-white text-center"> No perteneces a ninguna comunidad </h3>
+        </div>
+    {{/if}}
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

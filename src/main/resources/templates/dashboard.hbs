@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="img/people.svg">
+      <!-- Vincular el archivo CSS -->
+     <!--<link rel="stylesheet" href="css/dashboardStyles.css">-->
+    <!-- Bootstrap/CDN/CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+
+            /*background-image: url('../img/comBanner.png');*/
+            background: linear-gradient(to bottom, #0a2642, #008080);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /*rgb(0, 82, 82)*/
+        }
+        nav {
+            background-color: #0a2642;
+        }
+        ul.dropdown-menu {
+            background-color: #0a2642; /* Color de fondo para la lista desplegable */
+        }
+        ul.dropdown-menu a {
+            color: #ffffff !important; /* Color del texto en la lista desplegable */
+        }
+        ul.dropdown-menu a:hover {
+            background-color: #154f76; /* Color de fondo al pasar el cursor sobre las opciones */
+        }
+        .navbar-toggler {
+            background-color: #154f76; /* Cambiar el color del botón del toggler */
+        }
+        .container-fluid {
+            margin-left: 25px; /* Ajusta el valor según sea necesario */
+            margin-right: 35px; /* Ajusta el div, segun el la lista asi no se mueve toda la pagina*/
+        }
+
+        footer {
+          background-color: #0a2642; /* Agrega estilos al pie de página según tus preferencias */
+          padding: 1px;
+          text-align: center;
+          margin-top: auto; /* con esto movemos el footer al final de la pagina*/
+        }
+
+        .derechos-de-autor {
+          font-size: 15px;
+          color: #aeaeae;
+          padding: 20px;
+        }
+
+        /*PARA LOS BOTONES DE LOS INCIDENTES---------------------------------------------*/
+
+        /* Estilo para Reportar Un Incidente */
+        .btn-reportar-incidente {
+            background-color: #444b04; /* Amarillo oscuro */
+            color: #ffffff;
+        }
+
+        /* Estilo para Ver Detalles Del Incidente */
+        .btn-ver-detalles {
+            background-color: #042f5a; /* Gris oscuro */
+            color: #ffffff;
+        }
+
+        /* Estilo para Cerrar Incidente */
+        .btn-cerrar-incidente {
+            background-color: #461a1a; /* Amarillo oscuro */
+            color: #ffffff;
+        }
+        .btn-reportar-incidente:hover{
+            color: #ffffff; /* Cambiar el color del texto al pasar el ratón */
+            transition: color 0.3s ease; /* Agregar una transición solo para el color del texto */
+            background-color: #596407; /* Agregar el color de fondo para mantener el original */
+        }
+        .btn-ver-detalles:hover{
+            color: #ffffff; /* Cambiar el color del texto al pasar el ratón */
+            transition: color 0.3s ease; /* Agregar una transición solo para el color del texto */
+            background-color: #0e3e70; /* Agregar el color de fondo para mantener el original */
+        }
+        .btn-cerrar-incidente:hover {
+            color: #ffffff; /* Cambiar el color del texto al pasar el ratón */
+            transition: color 0.3s ease; /* Agregar una transición solo para el color del texto */
+            background-color: #5b2222; /* Agregar el color de fondo para mantener el original */
+        }
+    </style>
+
+
+    <!-- barra para Propietario -->
+    {{#if propietario}}
+    <!-- barra de navegacion (navbar)-->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <div class="me-auto">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                  <image href="img/people.svg" width="40" height="32" />
+              </svg>
+            <!--<a class="navbar-brand text-light" href="#">Navbar</a>-->
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="/dashboard">Inicio</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Carga De Datos
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/cargaMasiva">Importar CSV</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/cargaMasiva/manual">Carga Manual</a></li>
+                </ul>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link text-light" href="/subidos">Subidos</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Configuracion
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/login/detalle">Detalle de la Cuenta</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/logout">Cerrar Sesion</a></li>
+                </ul>
+              </li>
+              <!-- boton inabilitado
+              <li class="nav-item">
+                <a class="nav-link disabled text-light" aria-disabled="true">Disabled</a>
+              </li>
+              -->
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    {{#if bienvenidaPropietario}}
+    <!-- Hero para Propietario -->
+    <section class="medio">
+        <div class="px-4 py-5 my-2 text-center">
+            <img class="d-block mx-auto mb-4" src="img/people.svg" alt="" width="72" height="57">
+            <h1 class="display-5 fw-bold text-warning">¡Bienvenido, Propietario!</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4 fw-bold text-white">Accede a información detallada sobre incidentes reportados en las prestaciones de servicio de los establecimientos asociados a tu entidad. Colabora en mejorar la seguridad y accesibilidad. ¡Gracias por tu compromiso y contribución al bienestar de la comunidad!</p>
+            </div>
+        </div>
+    </section>
+    {{/if}}
+
+    {{/if}}
+
+    <!-- barra para Ciudadano -->
+    {{#if ciudadano}}
+        <!-- barra de navegacion (navbar)-->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="me-auto">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <image href="img/people.svg" width="40" height="32" />
+                    </svg>
+                    <!--<a class="navbar-brand text-light" href="#">Navbar</a>-->
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" aria-current="page" href="/dashboard">Inicio</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Comunidades
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/misComunidades">Mis Comunidades</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/comunidades">Explorar Comunidades</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Incidentes
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!--<li><a class="dropdown-item" href="#">Crear Incidente</a></li>-->
+                                <!--<li><hr class="dropdown-divider"></li>-->
+                                <li><a class="dropdown-item" href="/misIncidentes">Incidentes Reportados</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/misIncidentes/abiertos">Incidentes Reportados Abiertos</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/misIncidentes/cerrados">Incidentes Reportados Cerrados</a></li>
+                                <!--<li><hr class="dropdown-divider"></li>-->
+                                <!-- <li><a class="dropdown-item" href="#">Rankings</a></li> -->
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Servicios
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/misPrestaciones">Servicios de Interes</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/entidades">Entidades</a></li>
+                                <!--<li><hr class="dropdown-divider"></li>-->
+                                <!--<li><a class="dropdown-item" href="#">Establecimientos</a></li>-->
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Notificaciones
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/misNotificaciones">Mis Notificaciones</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/notificaciones/configuracion/detalle">Configurar Notificaciones</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Configuracion
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/login/detalle">Detalle de la Cuenta</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/logout">Cerrar Sesion</a></li>
+                            </ul>
+                        </li>
+                        <!-- boton inabilitado
+                        <li class="nav-item">
+                          <a class="nav-link disabled text-light" aria-disabled="true">Disabled</a>
+                        </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        {{#if bienvenidaCiudadano}}
+        <!-- Hero para Usuario Logueado -->
+        <section class="medio">
+            <div class="px-4 py-5 my-2 text-center">
+                <img class="d-block mx-auto mb-4" src="img/people.svg" alt="" width="72" height="57">
+                <h1 class="display-5 fw-bold text-success">¡Bienvenido de nuevo a InciAlert!</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4 fw-bold text-white">Explora y reporta incidentes en las prestaciones de servicio de establecimientos. Colabora en mejorar la seguridad y accesibilidad. ¡Gracias por ser parte de nuestra comunidad y ayudarnos a construir un entorno más seguro!</p>
+                </div>
+            </div>
+        </section>
+        {{/if}}
+
+    {{/if}}
+
+    <!-- inicio Para el Administrador-->
+    {{#if administrador}}
+        <!-- barra de navegacion (navbar)-->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="me-auto">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <image href="img/people.svg" width="40" height="32" />
+                    </svg>
+                    <!--<a class="navbar-brand text-light" href="#">Navbar</a>-->
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" aria-current="page" href="/dashboard">Inicio</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/comunidadesA">Comunidades</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/servicios">Servicios</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/logout">Cerrar Sesion</a>
+                        </li>
+
+                        <!-- boton inabilitado
+                        <li class="nav-item">
+                          <a class="nav-link disabled text-light" aria-disabled="true">Disabled</a>
+                        </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {{/if}}
+
+
+    <!-- Contenido - soy el Padre -->
+    {{#block "contenido"}}
+    {{/block}}
+
+    <!-- Pie de pagina (footer) -->
+    <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center">
+        <div class="derechos-de-autor"> &#169; 2023 inciAlert - Todos los derechos reservados.</div>
+    </footer>
+
+
+    <!-- Bootstrap/CDN/JSS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

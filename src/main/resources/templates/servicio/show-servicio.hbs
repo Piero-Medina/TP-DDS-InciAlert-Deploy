@@ -1,0 +1,39 @@
+{{#partial "contenido" }}
+    <style>
+        /*agregando al div */
+        .card {
+            background-color: #154f76; /* Tu color personalizado para el bloque "card mb-3" */
+        }
+    </style>
+
+    <!-- clases de bootstrap -> text-black: color fw-bold: cuerpo -->
+    <!--<h5 class="card-title text-black fw-bold">Servicios:</h5>-->
+
+    <div class="container mt-5">
+        <h1 class="mb-4 text-white text-center">Detalles del Servicio </h1>
+
+        <div class="card text-white">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">Nombre Del Servicio:</h5>
+                <p class="card-text">{{servicio.getNombre}}</p>
+                <h5 class="card-title fw-bold">Descripcion Del Servicio:</h5>
+                <p class="card-text">{{servicio.getDescripcion}}</p>
+            </div>
+        </div>
+        <!-- para dejar una espacio entre entre el show y los botones-->
+        <div class="d-flex justify-content-center mb-4">
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+            <!-- Botón para volver a la lista de entidades -->
+            <a href="lista-entidades.html" class="btn btn-primary mt-3">Volver a la Lista</a>
+        </div>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

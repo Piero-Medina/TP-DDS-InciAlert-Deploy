@@ -1,0 +1,39 @@
+{{#partial "contenido" }}
+
+        <style>
+            /*agregando al div */
+            .card {
+                background-color: white; /* Tu color personalizado para el bloque "card mb-3" */
+                color: black;
+            }
+        </style>
+
+    <!-- clases de bootstrap -> text-black: color fw-bold: cuerpo -->
+    <!--<h5 class="card-title text-black fw-bold">Servicios:</h5>-->
+
+    <div class="container mt-5">
+        <!--  Siempre blanco -->
+        <h1 class="mb-4 text-white text-center">Detalles De La Notificacion</h1>
+
+        <div class="card ">
+            <div class="card-body">
+                <h5 class="card-title ">Mensaje:</h5>
+                <p class="card-text">{{notificacion.getMensaje}}</p>
+            </div>
+        </div>
+        <!-- para dejar una espacio entre entre el show y los botones-->
+        <div class="d-flex justify-content-center mb-4">
+        </div>
+
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+        </div>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

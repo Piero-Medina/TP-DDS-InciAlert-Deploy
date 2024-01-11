@@ -1,0 +1,145 @@
+{{#partial "contenido" }}
+
+    <!-- PARA TODOS SERA ESTE ESTILO-->
+    <style>
+        /*agregando al div */
+        .card {
+            background-color: white; /* Tu color personalizado para el bloque "card mb-3" */
+            color: black;
+            max-width: 400px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .password-toggle {
+            display: flex;
+            align-items: center;
+        }
+
+        .password-toggle button {
+            margin-left: 10px;
+        }
+    </style>
+
+    <!-- clases de bootstrap -> text-black: color fw-bold: cuerpo -->
+    <!--<h5 class="card-title text-black fw-bold">Servicios:</h5>-->
+
+
+    <div class="container ">
+        <!--  Siempre blanco -->
+    {{#if detalleCuenta}}
+        <div class="card ">
+
+            <h2 class="mb-2 mt-3 text-black text-center">Detalles De La Cuenta</h2>
+
+            <div class="card-body ">
+                <h5 class="card-title ">Nombre:</h5>
+                <p class="card-text">{{persona.getNombre}}</p>
+
+                <h5 class="card-title ">Apellido:</h5>
+                <p class="card-text">{{persona.getApellido}}</p>
+
+                <h5 class="card-title ">Mail:</h5>
+                <p class="card-text">{{persona.getMail}}</p>
+
+                <h5 class="card-title ">Tipo De Usuario:</h5>
+                <p class="card-text">{{tipoUsuario}}</p>
+
+                {{#if propietario}}
+                <h5 class="card-title ">Tipo De Propietario:</h5>
+                <p class="card-text">{{tipoPropietario}}</p>
+                {{/if}}
+
+                <div class="mb-3">
+                    <h5 class="card-title ">Usuario:</h5>
+                    <div class="password-toggle">
+                        <input type="text" class="form-control" id="username" value="{{usuario.getNombre}}" readonly>
+                        <button class="btn btn-outline-secondary" type="button" id="toggleUsername">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <h5 class="card-title ">Contraseña:</h5>
+                    <div class="password-toggle">
+                        <input type="password" class="form-control" id="password" value="{{usuario.getContrasenia}}" readonly>
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+                <div class="d-flex justify-content-center mb-4">
+                    <a href="/login/edit"><button class="btn btn-primary mt-3 mx-auto d-block" >Editar Cuenta</button></a>
+                </div>
+
+        </div>
+    {{/if}}
+
+    {{#if detalleNotificaiones}}
+        <div class="card ">
+
+            <h2 class="mb-2 mt-3 text-black text-center">Detalles De Envio De Notifaciones</h2>
+
+            <div class="card-body ">
+
+                <h5 class="card-title ">Cuando Notificar:</h5>
+                <p class="card-text">{{persona.cuandoNotificar}}</p>
+
+                <h5 class="card-title ">Horario De Notificacion:</h5>
+                <p class="card-text">{{persona.horarioDeNotificaciones}}</p>
+
+                <h5 class="card-title ">Medio De Notificacion:</h5>
+                <p class="card-text">{{persona.medioDeNotificacionText}}</p>
+
+                <h5 class="card-title ">Numero De Telefono:</h5>
+                <p class="card-text">{{persona.numeroDeTelefonoText}}</p>
+
+                <h5 class="card-title ">Mail:</h5>
+                <p class="card-text">{{persona.getMail}}</p>
+            </div>
+
+            <div class="d-flex justify-content-center mb-4">
+                <a href="/notificaciones/configuracion/edit"><button class="btn btn-primary mt-3 mx-auto d-block" >Configurar Notificaciones</button></a>
+            </div>
+
+        </div>
+    {{/if}}
+        <!-- para dejar una espacio entre entre el show y los botones-->
+        <div class="d-flex justify-content-center mb-4">
+        </div>
+
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+        </div>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+
+        // Función para alternar la visibilidad del texto
+        function toggleVisibility(inputId, buttonId) {
+            const input = document.getElementById(inputId);
+            const button = document.getElementById(buttonId);
+
+            input.type = input.type === 'password' ? 'text' : 'password';
+            button.innerHTML = input.type === 'password' ? '<i class="bi bi-eye"></i>' : '<i class="bi bi-eye-slash"></i>';
+        }
+
+        // Manejar clic en el botón para alternar la visibilidad del usuario
+        document.getElementById('toggleUsername').addEventListener('click', function () {
+            toggleVisibility('username', 'toggleUsername');
+        });
+
+        // Manejar clic en el botón para alternar la visibilidad de la contraseña
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            toggleVisibility('password', 'togglePassword');
+        });
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

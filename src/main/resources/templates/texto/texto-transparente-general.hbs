@@ -1,0 +1,83 @@
+{{#partial "contenido" }}
+    <style>
+        .custom-overlay {
+            background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-container {
+            background-color: rgba(0, 0, 0, 0.5); /* Color de fondo transparente del contenedor */
+            padding: 20px; /*espacio entre cada elemento dentro de la clase*/
+            border-radius: 10px; /* Bordes redondeados para la clase */
+            text-align: center; /* alineacion del texto (usare estaba en "center" pero para este texto usare "left" )*/
+        }
+    </style>
+
+    <!-- Contenido encapsulado en un div -->
+    <!-- clase -> mb-4 usada para gregar margen inferior  -->
+
+    {{#if sinMedioDeNotificacionParaServicioDeInteres}}
+    <div class=" container mt-5 custom-container text-white mb-4">
+        <br>
+        <h3 class="text-center">Actualmente No tiene Configurado el medio De Notificacion Preferido</h3>
+        <br>
+        <p class="text-center">para agregar un servicio a su lista de intereses es necesario que tenga un medio de notificacion elegido, de esa forma podemos notificarle si sucede algun incidente en tal servico, Por favor, configure esta información en la configuracion de notificaciones y vuelva reintentar.</p>
+    </div>
+    {{/if}}
+
+    {{#if sinMedioDeNotificacionParaReportarIncidente}}
+        <div class=" container mt-5 custom-container text-white mb-4">
+            <br>
+            <h3 class="text-center">Actualmente No tiene Configurado el medio De Notificacion Preferido</h3>
+            <br>
+            <p class="text-center">para poder resportar un incidente es necesario que tenga un medio de notificacion elegido, de esa forma podemos notificarle si el incidente fue cerrado por alguien mas, Por favor, configure esta información en la configuracion de notificaciones y vuelva reintentar.</p>
+        </div>
+    {{/if}}
+
+
+    {{#if existePrestacionDeServicio}}
+    <div class=" container mt-5 custom-container text-white mb-4">
+        <br>
+        <h3 class="text-center">Ya tienes Añadido en tu intereses Este servicio De Interes </h3>
+        <br>
+        <p class="text-center">Te invitamos a explorar otros servicios de Interes que sean de tu agrado</p>
+    </div>
+    {{/if}}
+
+
+    {{#if textoEntidadPrestadoraEmpty}}
+        <div class=" container mt-5 custom-container text-white mb-4">
+            <br>
+            <h3 class="text-center">Actualmente, no tiene ninguna Entidad Prestadora registrado en su cuenta</h3>
+            <br>
+            <p class="text-center">Para comenzar a visualizar y gestionar su Entidad Prestadora, le recomendamos agregarlos desde la sección correspondiente en su perfil. Después de agregar su Entidad Prestadora, podrá verlos y administrarlos cómodamente desde su área personal</p>
+        </div>
+    {{/if}}
+
+    {{#if textoOrgDeControlEmpty}}
+        <div class=" container mt-5 custom-container text-white mb-4">
+            <br>
+            <h3 class="text-center">Actualmente, no tiene ningun Organismo de Control registrado en su cuenta</h3>
+            <br>
+            <p class="text-center">Para comenzar a visualizar y gestionar su Organismo de Control, le recomendamos agregarlos desde la sección correspondiente en su perfil. Después de agregar sus Organismo de Control, podrá verlos y administrarlos cómodamente desde su área personal</p>
+        </div>
+    {{/if}}
+
+    <div class="d-flex justify-content-center mb-4">
+        <button class="btn btn-secondary me-2" type="button" onclick="volverAtras()" >Volver</button>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

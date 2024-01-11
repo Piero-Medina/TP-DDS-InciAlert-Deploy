@@ -1,0 +1,16 @@
+Tipo,Nombre,Padre
+OrganismoDeControl,CNRT,Sin Padre
+EntidadPrestadora,Trenes Argentinos,CNRT
+Entidad,Linea Mitre,Trenes Argentinos
+Establecimiento,Estacion Retiro,Linea Mitre
+Establecimiento,Estacion Victoria,Linea Mitre
+Entidad,Linea San Martin,Trenes Argentinos
+Establecimiento,Estacion Retiro,Linea San Martin
+Establecimiento,Estacion Pilar,Linea San Martin
+EntidadPrestadora,EMOVA,CNRT
+Entidad,Linea A,EMOVA
+Establecimiento,Estacion Plaza De Mayo,Linea A
+Establecimiento,Estacion San Pedrito,Linea A
+Entidad,Linea C,EMOVA
+Establecimiento,Estacion Retiro,Linea C
+Establecimiento,Estacion Constitucion,Linea C

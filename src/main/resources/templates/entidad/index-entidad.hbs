@@ -1,0 +1,43 @@
+{{#partial "contenido" }}
+
+    <!-- color de fondo del incidente #154f76-->
+    <style>
+        /*agregando al div */
+        .custom-background {
+            background-color: #154f76;
+        }
+    </style>
+
+    <!-- Lista de Incidentes -->
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center text-white" >Entidades</h2>
+
+        <!-- Incidente 1 -->
+    {{#each entidad}}
+        <div class="card mb-3 custom-background text-white ">
+            <div class="card-body">
+                <h5 class="card-title">Entidad {{this.getNombre}}</h5>
+                <p class="card-text"> Localizacion: {{this.getLocalizacionDTONombre}}</p>
+
+                <a href="/entidadesPrestadoras/{{entidadPrestadora.getId}}/entidades/{{this.getId}}"> <button class="btn btn-info me-2">Ver en Detalle</button></a>
+                <a href="/entidadesPrestadoras/{{entidadPrestadora.getId}}/entidades/eliminar/{{this.getId}}"> <button class="btn btn-danger me-2">Eliminar Entidad</button></a>
+                <a href="/entidadesPrestadoras/{{entidadPrestadora.getId}}/entidades/{{this.getId}}/editar"> <button class="btn btn-warning me-2">Modificar Entidad</button></a>
+                <a href="/entidades/{{this.getId}}/establecimientos"> <button class="btn btn-primary me-2">Ver Establecimientos</button></a>
+            </div>
+        </div>
+    {{/each}}
+
+        <!-- Botón para Agregar Incidente -->
+        <div class="d-flex justify-content-center mb-4">
+            <a href="/entidadesPrestadoras/{{entidadPrestadora.getId}}/entidades/crear"><button class="btn btn-success me-2">Agregar Entidad</button></a>
+            <button class="btn btn-secondary" type="button" onclick="volverAtras()">Volver</button>
+        </div>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

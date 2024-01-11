@@ -1,0 +1,82 @@
+{{#partial "contenido" }}
+
+    <!--//-->
+    {{#if allEstablecimientos}}
+        <!-- Vista de Comunidades -->
+        <div class="container mt-5">
+            <h2 class="mb-4 text-white text-center">Establecimientos Disponibles</h2>
+
+            <!-- Lista de Comunidades -->
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                <!-- Comunidad 1 -->
+                {{#each establecimiento}}
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Entidad {{this.getNombre}} </h5>
+                                <p class="card-text"> Localizacion: {{this.getLocalizacionDTONombre}}</p>
+                                <!-- Botones para ver detalles y unirse -->
+                                <a href="/entidades/{{entidad.getId}}/establecimientos/{{this.getId}}" class="btn btn-info text-white">Ver Detalles</a>
+                                <a href="/establecimientos/{{this.getId}}/prestaciones"> <button class="btn btn-primary me-2">Ver Servicios Prestados</button></a>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+
+                <!-- Puedes agregar más comunidades según sea necesario -->
+            </div>
+            <div class="mt-4 d-flex justify-content-center">
+                <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+                <!--<a href="#" class="btn btn-primary ms-2">Agregar Comunidad</a>-->
+            </div>
+            <!-- para dejar una espacio -->
+            <div class="d-flex justify-content-center mb-4">
+            </div>
+        </div>
+    {{/if}}
+
+    <!--//-->
+    {{#if establecimientosDeEntidad}}
+        <!-- Vista de Comunidades -->
+        <div class="container mt-5">
+            <h2 class="mb-4 text-white text-center">Establecimientos Disponibles</h2>
+
+            <!-- Lista de Comunidades -->
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                <!-- Comunidad 1 -->
+                {{#each establecimiento}}
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Establecimiento {{this.getNombre}} </h5>
+                                <p class="card-text"> Localizacion: {{this.getLocalizacionDTONombre}}</p>
+                                <!-- Botones para ver detalles y unirse -->
+                                <a href="/entidades/{{entidad.getId}}/establecimientos/{{this.getId}}" class="btn btn-info text-white">Ver Detalles</a>
+                                <a href="/establecimientos/{{this.getId}}/prestaciones"> <button class="btn btn-primary me-2">Ver Servicios Prestados</button></a>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+
+                <!-- Puedes agregar más comunidades según sea necesario -->
+            </div>
+            <div class="mt-4 d-flex justify-content-center">
+                <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+                <!--<a href="#" class="btn btn-primary ms-2">Agregar Comunidad</a>-->
+            </div>
+            <!-- para dejar una espacio -->
+            <div class="d-flex justify-content-center mb-4">
+            </div>
+        </div>
+    {{/if}}
+
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

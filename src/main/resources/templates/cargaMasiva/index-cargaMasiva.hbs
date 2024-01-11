@@ -1,0 +1,101 @@
+{{#partial "contenido" }}
+
+
+    <style>
+        .card {
+            background-color: #154f76; /* Tu color personalizado para el bloque "card mb-3" */
+            color: white;
+        }
+    </style>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="mb-4 text-center text-white">Carga Masiva</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <!-- enctype="multipart/form-data" SE AGREGA CUANDO SE ENVIA DATA-->
+                        <form method="post" action="/cargaMasiva" enctype="multipart/form-data">
+                            <!-- usar clase "text-center" para centrar texto o botones-->
+                        {{#if cargaPrincipal}}
+                            <!-- Campos de Edición -->
+                            <div class="mb-3 text-center">
+                                <p class="card-text text-center fw-bold">Consideracion:</p>
+                                <p class="card-text text-center"> la carga masiva estara disponible cuando aun no se cargo ninguna entidad en el sistema, una vez cargado, no se podra usar la carga masiva para volver a cargar sus Entidadades </p>
+                            </div>
+
+                            <!-- Campos de Edición -->
+                            <div class="mb-3 text-center">
+                                <p class="card-text text-center fw-bold">Estructura:</p>
+                                <p class="card-text text-center">Por favor, asegúrese de que su archivo CSV cumpla con los siguientes requisitos de estructura antes de cargarlo</p>
+                            </div>
+
+                            <!-- envolvemos en la clase "mb-3" en cada boton para dejar un espacio al siguiente elemento en el form-->
+                            <div class="mb-3">
+                                <div class="text-center">
+                                    <a href="/cargaMasiva/estructura">
+                                    <button type="button" class="btn btn-info btn-block text-white">Estructura CSV</button>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 text-center">
+                                <label for="archivo" class="form-label fw-bold mb-3">Seleccione un Archivo:</label>
+                                <input type="file" class="form-control " id="archivo" name="CSVfile" accept=".csv">
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-block mt-2">Cargar CSV</button>
+                                </div>
+                            </div>
+
+                            {{#if estadoCorrecto}}
+                            <div class="mb-3 text-center">
+                                <p class="card-text text-center fw-bold text-success"> Carga Masiva Realizada Con Exito </p>
+                                <p class="card-text text-center fw-bold text-success"> Revise sus Entidades Subidas para visualizar lo Cargado </p>
+                            </div>
+                            {{/if}}
+
+                            {{#if estadoIncorrecto}}
+                            <div class="mb-3 text-center">
+                                <p class="card-text text-center fw-bold text-danger"> Hubo un Error con la carga Masiva</p>
+                                <p class="card-text text-center fw-bold text-danger"> Por favor revice la estructura que debe cumplir el archivo CSV y vuelva a intentar</p>
+                            </div>
+                            {{/if}}
+
+                            {{#if archivoVacio}}
+                                <div class="mb-3 text-center">
+                                    <p class="card-text text-center fw-bold text-danger"> No Se Selecciono Ningun Archivo Para Realizar La Carga</p>
+                                </div>
+                            {{/if}}
+
+                        {{/if}}
+
+                        {{#if cargaRealizada}}
+                            <!-- Campos de Edición -->
+                            <div class="mb-3 text-center">
+                                <p class="card-text text-center fw-bold">Consideracion:</p>
+                                <p class="card-text text-center"> la carga masiva estara disponible cuando aun no se cargo ninguna entidad en el sistema, una vez cargado, no se podra usar la carga masiva para volver a cargar sus Entidadades </p>
+                            </div>
+                        {{/if}}
+
+                        </form>
+
+                    </div>
+                </div>
+                <!-- Botones -->
+                <div class="d-flex justify-content-center mb-4 mt-4">
+                    <button class="btn btn-secondary me-2" type="button" onclick="volverAtras()" >Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

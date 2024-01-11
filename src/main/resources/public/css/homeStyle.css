@@ -1,0 +1,45 @@
+/* En tu archivo de estilo externo (styles.css) */
+
+header {
+    background-color: #0a2642;
+    margin-bottom: -10px; /* Ajusta según sea necesario */
+}
+
+body{
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+
+    background-image: url('../img/comBanner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* estilos al pie de pagina */
+footer {
+    background-color: #0a2642;
+    padding: 1px;
+    text-align: center;
+    margin-top: auto; /* con esto mandamos el footer hacia el final de la pagina*/
+}
+
+.derechos-de-autor {
+    font-size: 15px;
+    color: #aeaeae;
+    padding: 20px;
+}
+
+.medio{
+    color: white;
+}
+
+.boton-registro{
+    color: #091f7e;
+}
+
+
+
+

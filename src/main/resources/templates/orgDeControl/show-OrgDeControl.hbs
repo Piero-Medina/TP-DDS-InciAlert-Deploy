@@ -1,0 +1,42 @@
+{{#partial "contenido" }}
+    <style>
+        /*agregando al div */
+        .card {
+            background-color: #154f76; /* Tu color personalizado para el bloque "card mb-3" */
+        }
+    </style>
+
+    <!-- clases de bootstrap -> text-black: color fw-bold: cuerpo -->
+    <!--<h5 class="card-title text-black fw-bold">Servicios:</h5>-->
+
+    <div class="container mt-5">
+        <h2 class="mb-4 text-white text-center">Detalles Del Organimo De Control</h2>
+
+        <div class="card text-white">
+            <div class="card-body">
+                <h5 class="card-title ">Nombre Del Organismo De Control:</h5>
+                <p class="card-text">{{organismo.getNombre}}</p>
+
+                <h5 class="card-title ">Foto Representativa:</h5>
+                <!-- Ejemplo de una imagen -->
+                <img src="../../public/img/comBanner.png" class="img-fluid rounded mb-3" alt="Imagen de la entidad">
+            </div>
+        </div>
+
+        <!-- para dejar una espacio entre entre el show y los botones-->
+        <div class="d-flex justify-content-center mb-4">
+
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+            <a href="/organismosDeControl/{{organismo.getId}}/editar"> <button class="btn btn-warning me-2">Modificar OrgDeControl</button> </a>
+            <button class="btn btn-secondary me-2" type="button" onclick="volverAtras()" >Volver</button>
+        </div>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

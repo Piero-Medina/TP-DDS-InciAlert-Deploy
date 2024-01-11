@@ -1,0 +1,69 @@
+{{#partial "contenido" }}
+
+    {{#if propietario}}
+    <style>
+        /*agregando al div */
+        .card {
+            background-color: #154f76; /* Tu color personalizado para el bloque "card mb-3" */
+            color: white;
+        }
+    </style>
+    {{/if}}
+
+    {{#if ciudadano}}
+        <style>
+            /*agregando al div */
+            .card {
+                background-color: white; /* Tu color personalizado para el bloque "card mb-3" */
+                color: black;
+            }
+        </style>
+    {{/if}}
+
+    <!-- clases de bootstrap -> text-black: color fw-bold: cuerpo -->
+    <!--<h5 class="card-title text-black fw-bold">Servicios:</h5>-->
+
+    <div class="container mt-5">
+        <!--  Siempre blanco -->
+        <h1 class="mb-4 text-white text-center">Detalles del Establecimiento</h1>
+
+        <div class="card ">
+            <div class="card-body">
+                <h5 class="card-title ">Nombre del Establecimiento:</h5>
+                <p class="card-text">{{establecimiento.getNombre}}</p>
+                <h5 class="card-title ">Pertenece a la Entidad:</h5>
+                <p class="card-text">{{establecimiento.deEntidad}}</p>
+                <h5 class="card-title ">Descripcion:</h5>
+                <p class="card-text">{{establecimiento.getDescripcion}}</p>
+                <h5 class="card-title ">Localizacion:</h5>
+                {{#if localizacion}}
+                    <p class="card-text">Tipo: {{localizacion.getTipoDeLocalizacion}}</p>
+                    <p class="card-text">Nombre: {{localizacion.getNombre}}</p>
+                    <p class="card-text">Latitud: {{localizacion.getLatitud}}</p>
+                    <p class="card-text">Longitud: {{localizacion.getLongitud}}</p>
+                {{else}}
+                    <p class="card-text"> No Tiene Asignada Una Ubicacion</p>
+                {{/if}}
+                <!-- Ejemplo de una imagen -->
+                <h5 class="card-title ">Foto Representativa:</h5>
+                <img src="imagen.jpg" class="img-fluid rounded mb-3" alt="Imagen de la entidad">
+            </div>
+        </div>
+        <!-- para dejar una espacio entre entre el show y los botones-->
+        <div class="d-flex justify-content-center mb-4">
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+            {{#if propietario}}
+            <a href="/entidades/{{entidad.getId}}/establecimientos/{{establecimiento.getId}}/editar"> <button class="btn btn-success me-2">Modificar Establecimiento</button> </a>
+            {{/if}}
+            <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+        </div>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

@@ -1,0 +1,52 @@
+{{#partial "contenido" }}
+    <style>
+        .mt-5 {
+            margin-top: 3rem!important;
+            width: 70%; /* controlamos el ancho*/
+        }
+        form {
+            background-color: #154f76; /* Tu color personalizado para el formulario */
+        }
+
+        .form-control { /*colores para los imput del formulario*/
+            background-color: #dceaf3;
+            color: #35424a;
+            border: 1px solid #35424a;
+        }
+    </style>
+
+    <div class="container mt-5">
+
+        <form class="bg-light p-3 rounded" method="post" action="/organismosDeControl">
+            <div class="accordion" id="accordionForm">
+                <h1 class="text-center mb-4"> Crear Organismo De Control</h1>
+
+                <!-- Campo Normal -->
+                <div class="mb-3">
+                    <label for="campoNormal" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="campoNormal" name="nombre_edit" placeholder="Nombre Organismo De Control">
+                </div>
+
+                <div class="text-center mb-3">
+                    <button type="submit" class="btn btn-primary">Agregar Organismo De Control</button>
+                </div>
+
+            </div>
+        </form>
+        <!-- para dejar una espacio -->
+        <div class="d-flex justify-content-center mb-4">
+        </div>
+
+        <div class="text-center mb-3">
+            <button class="btn btn-secondary me-2" type="button" onclick="volverAtras()" >Volver</button>
+        </div>
+
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

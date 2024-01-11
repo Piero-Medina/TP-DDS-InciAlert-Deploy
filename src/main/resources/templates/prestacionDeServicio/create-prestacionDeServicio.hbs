@@ -1,0 +1,87 @@
+{{#partial "contenido" }}
+    <style>
+        .mt-5 {
+            margin-top: 3rem!important;
+            width: 60%;
+        }
+        form {
+            background-color: #154f76; /* Tu color personalizado para el formulario */
+            color: white; /*color de las letras del form, almenos que tenga una clase de bootstrap*/
+        }
+        .form-control { /*estilo de los imput del formulario para los imput del formulario*/
+            background-color: #dceaf3;
+            color: #35424a;
+            border: 1px solid #35424a;
+        }
+    </style>
+
+    <div class="container mt-5 ">
+        <h2 class="text-center mb-4 text-white">Crear Prestacion De Servicio</h2>
+
+        <!-- mb margen inferior-->
+        <form class="p-3 rounded mb-4" method="post" action="/establecimientos/{{establecimiento.getId}}/prestaciones">
+            <div class="accordion" id="accordionForm">
+
+                <!-- Campo Normal -->
+                <div class="mb-3">
+                    <label for="campoNormal" class="form-label fw-bold">Nombre Prestacion De Servicio:</label>
+                    <input type="text" class="form-control" id="campoNormal" name="nombre" placeholder="Nombre Servicio Prestado">
+                </div>
+
+                <!-- Área de Texto -->
+                <div class="mb-3">
+                    <label for="areaTexto" class="form-label  fw-bold ">Descripcion Prestacion De Servicio:</label>
+                    <textarea class="form-control" id="areaTexto" rows="4" name="descripcion" placeholder="Ingrese Descripcion"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="campoNormal" class="form-label text-white fw-bold">Perteneciente A Establecimiento:</label>
+                    <input type="text" class="form-control" id="campoNormal" placeholder="{{establecimiento.getNombre}}" disabled>
+                </div>
+
+                <!-- area lista de servicios -->
+                <div class="mb-3">
+                    <label for="seleccionOpcion" class="form-label fw-bold ">Servicio Brindado:</label>
+                    <select class="form-select" id="seleccionOpcion" name="servicioBrindado" aria-label="Selecciona una opción">
+                        <option selected>Selecciona una opción...</option>
+                        {{#each servicios}}
+                        <option value="{{this.getId}}">{{this.getNombre}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Estado Del Servicio:</label>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="estado" id="opcion1" value="activo">
+                        <label class="form-check-label " for="opcion1">Activo</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="estado" id="opcion2" value="noActivo">
+                        <label class="form-check-label " for="opcion2">No Activo</label>
+                    </div>
+                </div>
+
+                <div class="text-center mb-3">
+                    <button type="submit" class="btn btn-primary">Crear Prestacion De Servicio</button>
+                </div>
+
+            </div>
+        </form>
+
+        <!-- Botones fuera dentro del Form-->
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+        </div>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+
+{{/partial}}
+{{> templates/dashboard}}

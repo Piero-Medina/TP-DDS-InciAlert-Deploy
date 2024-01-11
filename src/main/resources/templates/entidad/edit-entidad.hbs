@@ -1,0 +1,85 @@
+{{#partial "contenido" }}
+
+    <style>
+        .mt-5 {
+            margin-top: 3rem!important;
+            width: 70%;
+        }
+
+        form {
+                background-color: #154f76; /* Tu color personalizado para el formulario */
+        }
+
+        .form-control { /*colores para los imput del formulario*/
+                background-color: #dceaf3;
+                color: #35424a;
+                border: 1px solid #35424a;
+        }
+    </style>
+    <!-- clases de bootstrap -> text-black: color fw-bold: cuerpo -->
+    <!--<h5 class="card-title text-black fw-bold">Servicios:</h5>-->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4 text-white ">Modificar Entidad</h2>
+
+        <form class="p-3 rounded" method="post" action="/entidadesPrestadoras/{{entidadPrestadora.getId}}/entidades/{{entidad.getId}}">
+            <div class="accordion" id="accordionForm">
+
+                <!-- Campo Normal -->
+                <div class="mb-3">
+                    <label for="campoNormal" class="form-label text-white fw-bold">Nombre Entidad:</label>
+                    <input type="text" class="form-control" id="campoNormal" name="nombre" placeholder="{{entidad.getNombre}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="campoNormal" class="form-label text-white fw-bold">Localizacion:</label>
+                    {{#if localizacion}}
+                        <p class="card-text text-white">Tipo: {{localizacion.getTipoDeLocalizacion}}</p>
+                        <p class="card-text text-white">Nombre: {{localizacion.getNombre}}</p>
+                        <p class="card-text text-white">Latitud: {{localizacion.getLatitud}}</p>
+                        <p class="card-text text-white">Longitud: {{localizacion.getLongitud}}</p>
+                    {{else}}
+                        <p class="card-text text-white"> No Tiene Asignada Una Ubicacion</p>
+                    {{/if}}
+                </div>
+
+                <a href="/{{entidadPrestadora.getId}}/{{entidad.getId}}/Entidad/localizacion">
+                    <button type="button" class="btn btn-warning">Modificar Ubicacion</button>
+                </a>
+
+
+                <!-- para dejar una espacio entre entre el show y los botones-->
+                <div class="d-flex justify-content-center mb-4">
+                </div>
+
+                <div class="text-center mb-3">
+                    <button type="submit" class="btn btn-primary">Confirmar Edicion</button>
+                </div>
+
+                <!-- Botones Dentro del fromulario - no centrados
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-secondary">Limpiar</button>
+                </div>
+                -->
+            </div>
+
+        </form>
+        <!-- para dejar una espacio entre entre el show y los botones-->
+        <div class="d-flex justify-content-center mb-4">
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-secondary me-2" type="button" onclick="volverAtras()" >Volver</button>
+            <!-- Botón para volver a la lista de entidades -->
+
+        </div>
+
+    </div>
+
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

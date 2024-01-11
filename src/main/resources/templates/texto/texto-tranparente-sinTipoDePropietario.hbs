@@ -1,0 +1,41 @@
+{{#partial "contenido" }}
+    <style>
+        .custom-overlay {
+            background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-container {
+            background-color: rgba(0, 0, 0, 0.5); /* Color de fondo transparente del contenedor */
+            padding: 20px; /*espacio entre cada elemento dentro de la clase*/
+            border-radius: 10px; /* Bordes redondeados para la clase */
+            text-align: center; /* alineacion del texto (usare estaba en "center" pero para este texto usare "left" )*/
+        }
+    </style>
+
+    <!-- Contenido encapsulado en un div -->
+    <!-- clase -> mb-4 usada para gregar margen inferior  -->
+    <div class=" container mt-5 custom-container text-white mb-4">
+        <br>
+        <h3 class="text-center">Actualmente no tenemos información sobre su tipo de propietario</h3>
+        <br>
+        <p class="text-center">Por favor, configure esta información en los detalles de su cuenta para una experiencia personalizada</p>
+    </div>
+    <div class="d-flex justify-content-center mb-4">
+        <button class="btn btn-secondary me-2" type="button" onclick="volverAtras()" >Volver</button>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

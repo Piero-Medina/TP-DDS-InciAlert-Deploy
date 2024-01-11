@@ -1,0 +1,8 @@
+Tipo,Nombre,Padre
+EntidadPrestadora,Trenes Argentinos,Sin Padre
+Entidad,Linea Mitre,Trenes Argentinos
+Establecimiento,Estacion Retiro,Linea Mitre
+Establecimiento,Estacion Victoria,Linea Mitre
+Entidad,Linea San Martin,Trenes Argentinos
+Establecimiento,Estacion Retiro,Linea San Martin
+Establecimiento,Estacion Pilar,Linea San Martin

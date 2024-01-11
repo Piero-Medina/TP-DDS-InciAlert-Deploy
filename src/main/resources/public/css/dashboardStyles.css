@@ -1,0 +1,42 @@
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-image: url('../img/comBanner.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        nav {
+            background-color: #0a2642;
+        }
+        ul.dropdown-menu {
+            background-color: #0a2642; /* Color de fondo para la lista desplegable */
+        }
+        ul.dropdown-menu a {
+            color: #ffffff !important; /* Color del texto en la lista desplegable */
+        }
+        ul.dropdown-menu a:hover {
+            background-color: #154f76; /* Color de fondo al pasar el cursor sobre las opciones */
+        }
+        .navbar-toggler {
+            background-color: #154f76; /* Cambiar el color del botón del toggler */
+        }
+        .container-fluid {
+            margin-left: 25px; /* Ajusta el valor según sea necesario */
+            margin-right: 35px; /* Ajusta el div, segun el la lista asi no se mueve toda la pagina*/
+        }
+
+        footer {
+          background-color: #0a2642; /* Agrega estilos al pie de página según tus preferencias */
+          padding: 1px;
+          text-align: center;
+          margin-top: auto; /* con esto movemos el footer al final de la pagina*/
+        }
+
+        .derechos-de-autor {
+          font-size: 15px;
+          color: #aeaeae;
+          padding: 20px;
+        }

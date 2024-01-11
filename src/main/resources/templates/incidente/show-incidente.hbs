@@ -1,0 +1,82 @@
+{{#partial "contenido" }}
+
+    {{#if propietario}}
+        <style>
+            /*agregando al div */
+            .card {
+                background-color: #154f76; /* Tu color personalizado para el bloque "card mb-3" */
+                color: white;
+            }
+        </style>
+    {{/if}}
+
+    {{#if ciudadano}}
+        <style>
+            /*agregando al div */
+            .card {
+                background-color: white; /* Tu color personalizado para el bloque "card mb-3" */
+                color: black;
+            }
+        </style>
+    {{/if}}
+
+    <!-- clases de bootstrap -> text-black: color fw-bold: cuerpo -->
+    <!--<h5 class="card-title text-black fw-bold">Servicios:</h5>-->
+
+    <div class="container mt-5">
+        <!--  Siempre blanco -->
+        <h1 class="mb-4 text-white text-center">Detalles Del Incidente</h1>
+
+        <div class="card ">
+            <div class="card-body">
+                <h5 class="card-title ">Nombre Incidente:</h5>
+                <p class="card-text">{{incidente.getNombreIncidente}}</p>
+
+                <h5 class="card-title ">Observaciones:</h5>
+                <p class="card-text">{{incidente.getObservaciones}}</p>
+
+                <h5 class="card-title ">Sobre el Servicio Prestado:</h5>
+                <p class="card-text">{{prestacion.getNombreServicioPrestado}}</p>
+
+                {{#if fechaDeApertura}}
+                <h5 class="card-title ">Apertura:</h5>
+                <p class="card-text">Fecha: {{fechaDeApertura}} Hora: {{horaDeApertura}}</p>
+                {{/if}}
+
+                {{#if fechaDeCierre}}
+                <h5 class="card-title ">Cierre:</h5>
+                <p class="card-text">Fecha: {{fechaDeCierre}} Hora: {{horaDeCierre}} </p>
+                {{/if}}
+
+                <h5 class="card-title ">Estado Del Incidente:</h5>
+                {{#if incidente.getEstadoIncidente}}
+                    <p class="card-text"><span class="badge bg-success">Activo</span></p>
+                {{else}}
+                    <p class="card-text"><span class="badge bg-danger">Inactivo</span></p>
+                {{/if}}
+
+            </div>
+            {{#if ciudadano}}
+            {{#if incidente.getEstadoIncidente}}
+            <div class="d-flex justify-content-center mb-4">
+                <a href="/incidentes/cerrar/{{incidente.getId}}" class="btn btn-cerrar-incidente me-2">Cerrar Incidente</a>
+            </div>
+            {{/if}}
+            {{/if}}
+        </div>
+        <!-- para dejar una espacio entre entre el show y los botones-->
+        <div class="d-flex justify-content-center mb-4">
+        </div>
+
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-secondary me-2" onclick="volverAtras()" >Volver</button>
+        </div>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}

@@ -1,0 +1,85 @@
+{{#partial "contenido" }}
+    <style>
+        .custom-overlay {
+            background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-container {
+            background-color: rgba(0, 0, 0, 0.5); /* Color de fondo transparente del contenedor */
+            padding: 20px; /*espacio entre cada elemento dentro de la clase*/
+            border-radius: 10px; /* Bordes redondeados para la clase */
+            text-align: left; /* alineacion del texto (usare estaba en "center" pero para este texto usare "left" )*/
+        }
+    </style>
+
+        <!-- Contenido encapsulado en un div -->
+        <!-- clase -> mb-4 usada para gregar margen inferior  -->
+    <div class=" container mt-5 custom-container text-white mb-4">
+        <h2 class="text-center">ESTRUCTURA CSV:</h2>
+        <br>
+        <h3> Propietario designado por un Organismo De Control:</h3>
+        <p>(podrá tener muchas Entidades Prestadoras (las cuales tendrán entidades(las cuales tendrán establecimientos)))</p>
+        <p></p>
+        <h3>Ejemplo:</h3>
+        <p>Tipo,Nombre,Padre</p>
+        <p>OrganismoDeControl,CNRT,Sin Padre</p>
+        <p>EntidadPrestadora,Trenes Argentinos,CNRT</p>
+        <p>Entidad,Linea Mitre,Trenes Argentinos</p>
+        <p>Establecimiento,Estacion Retiro,Linea Mitre</p>
+        <p>Establecimiento,Estacion Victoria,Linea Mitre</p>
+        <p>Entidad,Linea San Martin,Trenes Argentinos</p>
+        <p>Establecimiento,Estacion Retiro,Linea San Martin</p>
+        <p>Establecimiento,Estacion Pilar,Linea San Martin</p>
+        <p>EntidadPrestadora,EMOVA,CNRT</p>
+        <p>Entidad,Linea A,EMOVA</p>
+        <p>Establecimiento,Estacion Plaza De Mayo,Linea A</p>
+        <p>Establecimiento,Estacion San Pedrito,Linea A</p>
+        <p>Entidad,Linea C,EMOVA</p>
+        <p>Establecimiento,Estacion Retiro,Linea C</p>
+        <p>Establecimiento,Estacion Constitución,Linea C</p>
+        <p></p>
+        <br>
+        <h3>Propietario designado por una Entidad Prestadora:</h3>
+        <p>si el propietario es dueño de una Entidad Prestadora</p>
+        <p>(podrá tener muchas entidades(las cuales tendrán establecimientos))</p>
+        <p></p>
+        <h3>Ejemplo:</h3>
+        <p>Tipo,Nombre,Padre</p>
+        <p>EntidadPrestadora,Trenes Argentinos,Sin Padre</p>
+        <p>Entidad,Linea Mitre,Trenes Argentinos</p>
+        <p>Establecimiento,Estacion Retiro,Linea Mitre</p>
+        <p>Establecimiento,Estacion Victoria,Linea Mitre</p>
+        <p>Entidad,Linea San Martin,Trenes Argentinos</p>
+        <p>Establecimiento,Estacion Retiro,Linea San Martin</p>
+        <p>Establecimiento,Estacion Pilar,Linea San Martin</p>
+        <p></p>
+        <br>
+        <h3>IMPORTANTE:</h3>
+        <p>no dejar espacios entre "," y no dar un salto de línea en la última línea del archivo.CSV</p>
+        <p></p>
+        <br>
+        <h3>NOTAS:</h3>
+        <p>las localizaciones serán agregadas mediante la aplicación.</p>
+        <p>los servicios prestados serán agregados mediante la aplicación, a sus respectivos establecimientos.</p>
+
+
+    </div>
+    <div class="d-flex justify-content-center mb-4">
+        <button class="btn btn-secondary me-2" type="button" onclick="volverAtras()" >Volver</button>
+    </div>
+
+    <script>
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+{{/partial}}
+{{> templates/dashboard}}
