@@ -1,0 +1,31 @@
+version: '3.1'
+
+networks:
+  my_network: # la red se llama "my_network"
+    driver: bridge
+
+services:
+
+  dbservice:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: tp_dds
+    volumes:
+      - ./posgresdb:/var/lib/postgresql/data
+    networks:
+      - my_network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dds_deploy:1.0
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - dbservice
+    networks:
+      - my_network

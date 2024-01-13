@@ -112,12 +112,22 @@
       <version>8.1.0</version>
     </dependency>
 
+    <!-- drivers jdbc -->
+    <!-- mysql -->
+    <!--<dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>8.2.0</version>
+    </dependency>-->
+
     <!-- postgresql -->
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>42.2.14</version>
     </dependency>
+
+
 
     <!-- Base en memoria -->
     <!-- hsqldb -->

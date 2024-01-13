@@ -43,7 +43,7 @@
                 <div class="mb-3">
                     <label for="seleccionOpcion" class="form-label fw-bold ">Servicio Brindado:</label>
                     <select class="form-select" id="seleccionOpcion" name="servicioBrindado" aria-label="Selecciona una opción">
-                        <option selected>Selecciona una opción...</option>
+                        <option selected disabled>Selecciona una opción...</option>
                         {{#each servicios}}
                         <option value="{{this.getId}}">{{this.getNombre}}</option>
                         {{/each}}
