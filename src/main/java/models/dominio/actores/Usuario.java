@@ -1,7 +1,7 @@
 package models.dominio.actores;
 
 import models.dataBase.Persistente;
-import models.dominio.validacionContrasenia.ValidadorContraseña;
+import models.dominio.validacionContrasenia.ValidadorContrasenia;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,11 +32,11 @@ public class Usuario extends Persistente {
         this.contrasenia = contrasenia;
     }
 
-    public boolean contraseniaValida(String contraseña , ValidadorContraseña validadorContraseña){
-        return validadorContraseña.validarContraseña(contraseña);
+    public boolean contraseniaValida(String contraseña , ValidadorContrasenia validadorContraseña){
+        return validadorContraseña.validarContrasenia(contraseña);
     }
 
-    public boolean cambiarContrasenia(String contra_nueva, ValidadorContraseña validadorContraseña) {
+    public boolean cambiarContrasenia(String contra_nueva, ValidadorContrasenia validadorContraseña) {
        return validadorContraseña.cambioContraseña(contra_nueva, this.contrasenia);
     }
 

@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class PeoresContras {
-    private static final String archivo_contras = "C:\\Users\\Usuario\\Documents\\peores_contras.txt";
+    private static final String archivo_contras = "src\\main\\java\\models\\dominio\\validacionContrasenia\\peores_contrasenias.txt";
 
     private String[] leerPalabras() {
         String[] contras = new String[10000];

@@ -7,7 +7,6 @@ import models.dominio.actores.Ciudadano;
 import models.dominio.actores.Propietario;
 import models.dominio.actores.TipoPropietario;
 import models.dominio.comunidad.CuandoNotificar;
-import models.dominio.comunidad.MedioDeNotificaion;
 import models.dominio.notificaciones.Notificacion;
 import models.dominio.notificaciones.strategys.EstrategiaDeNotificacion;
 import models.dominio.notificaciones.strategys.Mail;
@@ -19,7 +18,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NotificacionController extends Controller implements ICrudViewsHandler {
+public class NotificacionController extends Controller {
 
     private CiudadanoRepository ciudadanoRepository;
 
@@ -30,7 +29,6 @@ public class NotificacionController extends Controller implements ICrudViewsHand
         this.repositorioNotificaciones = notificacionRepository;
     }
 
-    @Override
     public void index(Context context) {
         super.usuarioLogueadoTienePermisos(context, "ver_lista_notificaciones");
 
@@ -45,7 +43,6 @@ public class NotificacionController extends Controller implements ICrudViewsHand
         context.render("notificacion/index-notificacion.hbs",model);
     }
 
-    @Override
     public void show(Context context) {
         super.usuarioLogueadoTienePermisos(context, "ver_detalle_notificacion");
 
@@ -69,20 +66,6 @@ public class NotificacionController extends Controller implements ICrudViewsHand
         context.render("login/show-login.hbs",model);
     }
 
-    @Override
-    public void create(Context context) {
-
-    }
-
-    @Override
-    public void save(Context context) {
-
-    }
-
-    @Override
-    public void edit(Context context) {
-
-    }
 
     public void editConfiguracion(Context context) {
         super.usuarioLogueadoTienePermisos(context, "editar_notificacion_configuracion");
@@ -96,11 +79,6 @@ public class NotificacionController extends Controller implements ICrudViewsHand
         context.render("login/edit-login.hbs",model);
     }
 
-    @Override
-    public void update(Context context) {
-
-    }
-
     public void updateConfiguracion(Context context) {
         super.usuarioLogueadoTienePermisos(context, "actualizar_notificacion_configuracion");
 
@@ -109,12 +87,6 @@ public class NotificacionController extends Controller implements ICrudViewsHand
         this.ciudadanoRepository.update(ciudadano);
         context.redirect("/notificaciones/configuracion/detalle");
     }
-
-    @Override
-    public void delete(Context context) {
-
-    }
-
 
     public void asignarParametrosCiudadanoEdit(Ciudadano ciudadano, Context context){
         if(context.formParam("cuandoNotificar") != null && !context.formParam("cuandoNotificar").isEmpty()) {

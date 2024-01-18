@@ -22,7 +22,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CargaMasivaController extends Controller implements ICrudViewsHandler {
+public class CargaMasivaController extends Controller{
 
     private PropietarioRepository propietarioRepository;
 
@@ -30,7 +30,6 @@ public class CargaMasivaController extends Controller implements ICrudViewsHandl
         this.propietarioRepository = propietarioRepository;
     }
 
-    @Override
     public void index(Context context) {
         super.usuarioLogueadoTienePermisos(context, "crear_org_de_control", "crear_entidad_prestadora", "crear_entidad", "crear_establecimiento");
 
@@ -53,17 +52,6 @@ public class CargaMasivaController extends Controller implements ICrudViewsHandl
         }
     }
 
-    @Override
-    public void show(Context context) {
-
-    }
-
-    @Override
-    public void create(Context context) {
-
-    }
-
-    @Override
     public void save(Context context) throws IOException {
         super.usuarioLogueadoTienePermisos(context,
                 "crear_org_de_control", "crear_entidad_prestadora", "crear_entidad", "crear_establecimiento"
@@ -77,6 +65,7 @@ public class CargaMasivaController extends Controller implements ICrudViewsHandl
         // para que se muestre esta seccion. total el navegador solo tira post con formularios
         model.put("cargaPrincipal","true");
 
+        assert uploadedFile != null;
         if(uploadedFile.size() == 0){
 
             model.put("archivoVacio","true");
@@ -114,23 +103,12 @@ public class CargaMasivaController extends Controller implements ICrudViewsHandl
         }
     }
 
-    @Override
     public void edit(Context context) {
         Map<String,Object> model = new HashMap<>();
         model.put("propietario","true");
         context.render("cargaMasiva/show-cargaMasiva.hbs",model);
     }
 
-    @Override
-    public void update(Context context) {
-
-    }
-
-    @Override
-    public void delete(Context context) {
-
-    }
-    
     public void cargaManual(Context context){
         super.usuarioLogueadoTienePermisos(context, "crear_org_de_control", "crear_entidad_prestadora");
 
@@ -152,7 +130,6 @@ public class CargaMasivaController extends Controller implements ICrudViewsHandl
             context.redirect("/subidos");
         }
     }
-    
 
     public void guardarArchivo(UploadedFile uploadedFile, String nombre, String ruta) {
         try {
@@ -161,21 +138,6 @@ public class CargaMasivaController extends Controller implements ICrudViewsHandl
         } catch (IOException e) {
             System.out.println("NO SE PUDO GURADR EL ARCHIVO " + nombre);
             e.printStackTrace();
-        }
-    }
-
-    public Usuario UsuarioLogueadoDirecto(Context context){
-        return entityManager().find(Usuario.class, Long.parseLong(("" + context.sessionAttribute("id_usuario"))));
-    }
-
-    public Propietario propietarioLogueadoDirecto(Context context){
-        try {
-            String hql = "SELECT c FROM Propietario c JOIN c.usuario u WHERE u.id = :usuarioId";
-            return entityManager().createQuery(hql, Propietario.class)
-                    .setParameter("usuarioId",  Long.parseLong(("" + context.sessionAttribute("id_usuario"))))
-                    .getSingleResult();
-        } catch (NoResultException e) {
-            return null;
         }
     }
 }

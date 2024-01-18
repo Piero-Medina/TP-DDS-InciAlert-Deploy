@@ -5,14 +5,13 @@ import models.dominio.actores.*;
 import io.javalin.http.Context;
 import io.javalin.http.HttpStatus;
 import models.dominio.comunidad.CuandoNotificar;
-import models.dominio.validacionContrasenia.ValidacionContraseña;
-import server.utils.ICrudViewsHandler;
+import models.dominio.validacionContrasenia.ValidacionContrasenia;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class RegistroController extends Controller{
-    private final ValidacionContraseña validador  = new ValidacionContraseña();;
+    private final ValidacionContrasenia validador  = new ValidacionContrasenia();;
     CiudadanoRepository repositorioCiudadano;
     PropietarioRepository repositoryPropietario;
     UsuarioRepository repositorioUsuario;

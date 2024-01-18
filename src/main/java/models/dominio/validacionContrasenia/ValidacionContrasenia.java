@@ -1,6 +1,6 @@
 package models.dominio.validacionContrasenia;
 
-public class ValidacionContraseña {
+public class ValidacionContrasenia {
     private final ValidacionCaracteres validacion = new ValidacionCaracteres();
     private final PeoresContras peores_contras = new PeoresContras();
     public boolean validar(String contra_nueva) {

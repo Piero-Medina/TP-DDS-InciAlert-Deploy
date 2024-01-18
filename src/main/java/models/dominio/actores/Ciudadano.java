@@ -62,7 +62,6 @@ public class Ciudadano extends Persistente {
     @Column(name = "medioDeNotificacion")
     private EstrategiaDeNotificacion medioDeNotificacion;
 
-
     @Column(name = "horarioDeNotificacion", columnDefinition = "TIME")
     private LocalTime horarioDeNotificaion;
 
