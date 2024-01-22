@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Sistema de Seguimiento Y reportes De Incidentes (InciAlert)
+=======
+# Sistema de Seguimiento Y Reportes de Incidentes (InciAlert)
+>>>>>>> 37e99ec93318339a0d826a0a69c0f041f6fb9acc
 
 * Trabajo Practico Anual de la materia: Diseño de Sistemas 
 
@@ -16,9 +20,26 @@ un archivo.CSV el cual se indica como se debe estar estruturado segun el Tipo de
 
 # Link
 -> https://incialert.onrender.com
+<<<<<<< HEAD
 el despligue fue hecho en render usando una cuenta gratuita, entonces la aplicación puede suspenderse después de un período de inactividad. 
 
 # Imagenes 
 ![image](https://user-images.githubusercontent.com/39303639/228127009-8c84ea72-969b-4e05-b311-45e3688a4164.png)
 
 
+=======
+* el despligue fue hecho en render usando una cuenta gratuita, entonces la aplicación puede suspenderse después de un período de inactividad. 
+
+# Imagenes 
+Home
+[![Captura-web-22-1-2024-12451-localhost.jpg](https://i.postimg.cc/bYCzrN4k/Captura-web-22-1-2024-12451-localhost.jpg)](https://postimg.cc/mh9x6RLg)
+
+Home Ciudadano
+[![Captura-web-22-1-2024-124558-localhost.jpg](https://i.postimg.cc/3NB98ctF/Captura-web-22-1-2024-124558-localhost.jpg)](https://postimg.cc/2L1nT2R1)
+
+Home Propietario
+[![Captura-web-22-1-2024-131519-localhost.jpg](https://i.postimg.cc/90nRYP0j/Captura-web-22-1-2024-131519-localhost.jpg)](https://postimg.cc/K3t8ZMt9)
+
+Incidentes
+[![Captura-web-22-1-2024-131049-localhost.jpg](https://i.postimg.cc/T1DGBnQx/Captura-web-22-1-2024-131049-localhost.jpg)](https://postimg.cc/vxbpVgp2)
+>>>>>>> 37e99ec93318339a0d826a0a69c0f041f6fb9acc
