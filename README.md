@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Sistema de Seguimiento Y reportes De Incidentes (InciAlert)
-=======
 # Sistema de Seguimiento Y Reportes de Incidentes (InciAlert)
->>>>>>> 37e99ec93318339a0d826a0a69c0f041f6fb9acc
 
 * Trabajo Practico Anual de la materia: Diseño de Sistemas 
 
@@ -19,15 +15,7 @@ un archivo.CSV el cual se indica como se debe estar estruturado segun el Tipo de
 * habra un administrador el cual es el encargado de dar de alta comunidades y servicios en el sistema.
 
 # Link
--> https://incialert.onrender.com
-<<<<<<< HEAD
-el despligue fue hecho en render usando una cuenta gratuita, entonces la aplicación puede suspenderse después de un período de inactividad. 
-
-# Imagenes 
-![image](https://user-images.githubusercontent.com/39303639/228127009-8c84ea72-969b-4e05-b311-45e3688a4164.png)
-
-
-=======
+* https://incialert.onrender.com
 * el despligue fue hecho en render usando una cuenta gratuita, entonces la aplicación puede suspenderse después de un período de inactividad. 
 
 # Imagenes 
@@ -42,4 +30,4 @@ Home Propietario
 
 Incidentes
 [![Captura-web-22-1-2024-131049-localhost.jpg](https://i.postimg.cc/T1DGBnQx/Captura-web-22-1-2024-131049-localhost.jpg)](https://postimg.cc/vxbpVgp2)
->>>>>>> 37e99ec93318339a0d826a0a69c0f041f6fb9acc
+
