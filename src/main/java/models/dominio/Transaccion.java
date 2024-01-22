@@ -38,38 +38,11 @@ public class Pruebas implements WithSimplePersistenceUnit{
     public static void main(String[] args) throws IOException {
 
         //new Pruebas().testrepoUsuario();
-        new Pruebas().transaccion();
-        //new Pruebas().testNotificador();
+        //new Pruebas().transaccion();
+        new Pruebas().testNotificador();
         //new Pruebas().testJavalin();
         //new Pruebas().testRepositorio();
        // new Pruebas().testController();
-        //new Pruebas().testLectorCSV();
-        //new Pruebas().testJOIN();
-        //new Pruebas().testGuardadoEnCascada();
-        //new Pruebas().testUsurioController();
-        //new Pruebas().testBuscadorDeIncidente();
-         //new Pruebas().mensajeMail();
-
-    }
-
-
-    private void testRepositorio(){
-        ServicioRepository repositorio = new ServicioRepository();
-
-        /*
-        Servicio ascensor = new Servicio();
-        ascensor.setNombre("ascensor");
-        ascensor.setDescripcion("Aparato elevador que sirve para transportar personas en un edificio");
-
-        repositorio.save(ascensor);
-        */
-
-        List<Servicio> servicios = repositorio.findAll();
-
-        for (Servicio elemento : servicios) {
-            System.out.println("servicio => " + elemento.getNombre());
-            System.out.println("descripcion => " + elemento.getDescripcion());
-        }
 
     }
 
@@ -171,8 +144,8 @@ public class Pruebas implements WithSimplePersistenceUnit{
         // ANTES ME TIRABA UN ERROR PORQUE NO TENIA LA LISTA DE SERVICIOS PRESTADOS INICIALIZADA EN EL ESTABLECMIENTO
 
         // SOLO SE PODRA CREAR UN INCDENTE POR CADA PRESTACION DE SERVICIO
-        // UNA VEZ QUE SE CIERRA ESE INCIDNTE NO SE PODRA VOLVER A ABRIR
-        // SI S QUIERE CREAR OTRO INCIDENT TENDRA QUE CREAR OTRO
+        // UNA VEZ QUE SE CIERRA ESE INCIDENTE NO SE PODRA VOLVER A ABRIR
+        // SI SE QUIERE CREAR OTRO INCIDENT TENDRA QUE CREAR OTRO
         // LA LOGICA DE ESTO LO HAREMOS EN EL CONTROLER DE INCIDENTES
         // ANTES DE CREAR EL INCIDENTE HAREMOS LA VALIDACION SI PARA LA PRESTACION DE SERVICIO TAL HAY UN INCIDENTE "ACTIVO"
 
@@ -248,121 +221,5 @@ public class Pruebas implements WithSimplePersistenceUnit{
         unNotificador.cerrarServicio();
     }
 
-    private void testJavalin(){
-        Integer port = Integer.parseInt(System.getProperty("port", "8080"));
-
-        Javalin app = Javalin.create().start(port);
-
-        app.get("/", ctx -> ctx.result("Hola Mundo"));
-    }
-
-    private void testrepoUsuario(){
-        UsuarioRepository repository = new UsuarioRepository();
-
-        Usuario usuario = repository.findByNombre("DDS16");
-
-        System.out.println(usuario.getNombre());
-        System.out.println(usuario.getContrasenia());
-
-    }
-
-    private void testLectorCSV() throws IOException {
-        CSV lector = new CSV();
-
-        Propietario propietario = new Propietario();
-
-        // ODC
-        List<String> lineas = lector.lectorDeCSV("src\\main\\java\\models\\dominio\\archivos\\archivoPropietarioODC.csv");
-        // EP
-        //List<String> lineas = lector.lectorDeCSV("src\\main\\java\\models\\dominio\\archivos\\archivoPropietarioEP.csv");
-
-        //lector.imprimirLineas(lineas);
-
-
-        lector.mapearDatos(lineas,propietario);
-       // System.out.println("datos Propietario");
-       // System.out.println(propietario.getOrganismosDeControl().get(0).getNombre());
-       // System.out.println(propietario.getOrganismosDeControl().get(0).getEntidadesPrestadoras().get(0).getNombre());
-        // System.out.println(propietario.getOrganismosDeControl().get(0).getEntidadesPrestadoras().get(0).getEntidades().get(0).getNombre());
-        //System.out.println(propietario.getOrganismosDeControl().get(0).getEntidadesPrestadoras().get(0).getEntidades().get(0).getEstablecimientos().get(0).getNombre());
-
-    }
-
-    private void testJOIN (){
-        String hql = "SELECT c FROM Ciudadano c JOIN c.usuario u WHERE u.id = :usuarioId";
-        Ciudadano ciudadano = entityManager().createQuery(hql, Ciudadano.class)
-                .setParameter("usuarioId", Long.parseLong("2"))
-                .getSingleResult();
-
-        System.out.println(ciudadano.getNombre());
-    }
-
-    private void testGuardadoEnCascada(){
-        OrganismoControlRepository repository = new OrganismoControlRepository();
-
-        OrganismoDeControl cnrt = new OrganismoDeControl();
-        EntidadPrestadora trenesArgentinos = new EntidadPrestadora();
-        Entidad lineaMitre = new Entidad();
-        Establecimiento estacionRetiro = new Establecimiento();
-
-        cnrt.setNombre("CNRT");
-
-        trenesArgentinos.setNombre("Trenes Argentinos");
-        cnrt.agregarEntidadPrestadora(trenesArgentinos);
-
-        lineaMitre.setNombre("Linea Mitre");
-        trenesArgentinos.agregarEntidad(lineaMitre);
-
-        estacionRetiro.setNombre("Estacion Retiro");
-        lineaMitre.agregarEstablecimiento(estacionRetiro);
-
-        repository.save(cnrt);
-
-    }
-
-    private  void testUsurioController(){
-        /*
-        Usuario usuario = entityManager().find(Usuario.class, Long.parseLong("4"));
-        System.out.println(usuario.getNombre());
-        */
-
-        CiudadanoRepository ciudadanoRepository = new CiudadanoRepository();
-        Ciudadano ciudadano = ciudadanoRepository.findById(1L);
-
-        System.out.println(ciudadano.getMedioDeNotificacion());
-
-        EstrategiaDeNotificacion estrategiaDeNotificacion = new Mail();
-
-        System.out.println(estrategiaDeNotificacion.getClass().getSimpleName());
-
-    }
-
-    private void testBuscadorDeIncidente(){
-        PrestacionController servicio = new PrestacionController(new PrestacionRepository());
-        PrestacionDeServicio prestacionDeServicio = new PrestacionRepository().findById(1L);
-
-        System.out.println(prestacionDeServicio.getNombreServicioPrestado());
-
-        Incidente incidente = servicio.obtenerIncidenteActualPorIdPrestacion(1L);
-
-        System.out.println(incidente.getNombreIncidente());
-    }
-
-    private void mensajeMail(){
-
-        // obtenemos los datos de el archivo de configuracion
-        String mail = Configuracion.getMailEmisor();
-        String contrasenia = Configuracion.getContraseniaDeAplicacion();
-        System.out.println("mail: "+mail+" contraseña: " +contrasenia);
-
-        // Dentro de la clase Mail que implementa Estrategia de Notificaion, usamos los datos del archivo de configuracion para crear un Mail
-        EstrategiaDeNotificacion estrategiamail = new Mail();
-
-        Ciudadano ciudadano = new Ciudadano();
-        ciudadano.setMail("pieromedina30@gmail.com");
-        estrategiamail.enviar(ciudadano,"mesaje de prueba Usando Variables de configuracion");
-
-
-    }
 
 }
