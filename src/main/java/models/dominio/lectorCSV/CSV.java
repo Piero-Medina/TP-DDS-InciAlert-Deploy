@@ -40,7 +40,7 @@ public class CSV implements LectorCSVAdapter {
                 lineas.add(linea);
             }
         } catch (Exception e) {
-            System.out.println(" no se pudo leer o econtrar el archivo ");
+            System.out.println(" no se pudo leer o encontrar el archivo ");
         } finally {
             if (lectorDeLineas != null) {
                 lectorDeLineas.close();

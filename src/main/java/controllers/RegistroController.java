@@ -31,7 +31,7 @@ public class RegistroController extends Controller{
         boolean usuarioValido = this.usuarioValido(context.formParam("usuario"));
         String contrasenia = context.formParam("contrasenia");
         // comentar y poner en true para no analizar la contraseña
-        boolean esValida = true;//validador.validar(contrasenia);
+        boolean esValida = validador.validar(contrasenia);
 
         if(esValida && usuarioValido) {
             registroUsuario(context);

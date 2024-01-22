@@ -1,29 +1,27 @@
-//import dominio.validacionContraseña.Contraseña.*;
+import models.dominio.validacionContrasenia.ValidadorContrasenia;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ValidadorTest {
-/*
+
     @Test
-    public void contreaseñaValida() {
-        ValidadorContraseñas validacion = new ValidadorContraseñas();
+    public void contreaseniaValida() {
+        ValidadorContrasenia validacion = new ValidadorContrasenia();
 
         String contra = "Matias1?";
 
-        Assertions.assertTrue(validacion.validar(contra));
+        Assertions.assertTrue(validacion.validarContrasenia(contra));
     }
 
     @Test
-    public void contreaseñaInvalida() {
-        ValidadorContraseñas validacion = new ValidadorContraseñas();
+    public void contreaseniaInvalida() {
+        ValidadorContrasenia validacion = new ValidadorContrasenia();
 
         String contra = "1234";
 
-
-        Assertions.assertFalse(validacion.validar(contra));
+        Assertions.assertFalse(validacion.validarContrasenia(contra));
     }
 
- */
 }
 
 

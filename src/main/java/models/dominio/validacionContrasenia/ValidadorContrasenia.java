@@ -9,7 +9,7 @@ public class ValidadorContrasenia {
     public CambiarContrasenia cambiarContrasenia;
     public ValidacionContrasenia validacionContraseña;
     private UsuarioRepository usuarioRepository;
-    public ValidadorContrasenia(EntityManager em) {
+    public ValidadorContrasenia() {
         this.usuarioRepository = new UsuarioRepository();
     }
     public boolean validarContrasenia(String contra){

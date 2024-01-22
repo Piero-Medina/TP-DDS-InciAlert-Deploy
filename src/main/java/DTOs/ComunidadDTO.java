@@ -31,27 +31,6 @@ public class ComunidadDTO {
         setAdministradores(comunidad.getAdministradores());
     }
 
-    // todo lombok inicializara todo, asi que una lista jamas sera null, ya que estara inicializada
-
-    /*
-    public int cantidadDeMiembros(Comunidad comunidad){
-        if(!(comunidad.getMiembros() == null)){
-            return comunidad.getMiembros().size();
-        }
-        return 0;
-    }
-
-    public String administradoresToString(){
-        StringBuilder cadena = new StringBuilder();
-        if(!(this.getAdministradores() == null)) {
-            for (Ciudadano administrador : this.getAdministradores()) {
-                cadena.append(administrador.getNombre());
-            }
-            return cadena.toString();
-        }
-        return "Sin Administradores";
-    }
-    */
 
     public int cantidadDeMiembros(Comunidad comunidad){
             return comunidad.getMiembros().size();
